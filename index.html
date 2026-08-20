@@ -449,6 +449,31 @@
           </tbody>
         </table>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">
+          Além do total do dia, há um mínimo de pessoas que tem de estar presentes no momento exato
+          da chegada e da partida do navio (ex: 1 pessoa na chegada e 1 na partida, ou 2 na chegada
+          — depende do tipo). Hoje está configurado assim — confirme ou corrija:
+        </p>
+        <div class="field-row">
+          <label class="field-label">Chegada — Trânsito</label>
+          <input class="field-input num" type="number" name="cobertura_chegada_transito" value="1" />
+        </div>
+        <div class="field-row">
+          <label class="field-label">Chegada — Semi-turnaround</label>
+          <input class="field-input num" type="number" name="cobertura_chegada_semiturnaround" value="2" />
+        </div>
+        <div class="field-row">
+          <label class="field-label">Chegada — Turnaround</label>
+          <input class="field-input num" type="number" name="cobertura_chegada_turnaround" value="2" />
+        </div>
+        <div class="field-row">
+          <label class="field-label">Partida — todos os tipos de navio</label>
+          <input class="field-input num" type="number" name="cobertura_partida" value="1" />
+        </div>
+      </div>
+
       <div class="subquestion">
         <p class="q-text" style="margin-bottom: 10px">
           Esta tabela assume que há dois valores por situação — um ideal e um mínimo. Se isso não
@@ -880,6 +905,18 @@
         var minimo = tr.children[2].querySelector("input").value || "?";
         linhas.push("   " + situacao + " — ideal: " + ideal + ", mínimo: " + minimo);
       });
+      linhas.push(
+        "   Cobertura na chegada — Trânsito: " +
+          (document.querySelector('[name="cobertura_chegada_transito"]').value || "?") +
+          ", Semi-turnaround: " +
+          (document.querySelector('[name="cobertura_chegada_semiturnaround"]').value || "?") +
+          ", Turnaround: " +
+          (document.querySelector('[name="cobertura_chegada_turnaround"]').value || "?"),
+      );
+      linhas.push(
+        "   Cobertura na partida (todos os tipos): " +
+          (document.querySelector('[name="cobertura_partida"]').value || "?"),
+      );
       var matrizComentario = document.getElementById("matriz-comentario").value.trim();
       if (matrizComentario) linhas.push("   Comentário: " + matrizComentario);
       linhas.push("");
