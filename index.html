@@ -586,6 +586,15 @@
             nível mais alto pode ficar sozinho num turnaround ou numa pernoita)
           </label>
           <label class="choice">
+            <input
+              type="checkbox"
+              name="nivel-implicacao"
+              value="Influenciar quem tem prioridade num fim de semana completo de folga"
+            />
+            Influenciar quem tem prioridade a receber um fim de semana completo de folga (o
+            programa já roda isso pela equipa por justiça — o nível deve pesar nessa escolha?)
+          </label>
+          <label class="choice">
             <input type="checkbox" name="nivel-implicacao" value="Só informativo, sem regra na escala" />
             Não tem regra nenhuma associada — é só informação de referência
           </label>
@@ -638,6 +647,191 @@
           name="feriado_explicacao"
           placeholder="Detalhe o que muda em cada caso, se «Depende» ou «algo extra» em alguma das duas…"
         ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 6. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
+    <p class="q-section-intro">Nalgumas semanas não dá para cobrir todos os navios e ainda garantir as 2 folgas a toda a gente. O programa já tem de escolher o que cede primeiro — falta confirmar se escolhe bem.</p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Numa semana assim, entre pedir a alguém mais um dia seguido de trabalho (nunca além do
+        máximo legal) mantendo as 2 folgas, ou manter os dias de trabalho normais mas reduzir essa
+        pessoa a só 1 folga nessa semana (compensada na seguinte), o que deve ceder primeiro?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="escassez-cede" value="Mais um dia seguido de trabalho, mantendo as 2 folgas" /> Mais um dia seguido de trabalho — as 2 folgas mantêm-se</label>
+        <label class="choice"><input type="radio" name="escassez-cede" value="Só 1 folga essa semana, compensada depois" /> Só 1 folga nessa semana — compensada logo que possível a seguir</label>
+        <label class="choice"><input type="radio" name="escassez-cede" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="escassez-explicacao"
+          name="escassez_explicacao"
+          placeholder="Se depende, de quê (quem já está mais cansado, quantos dias seguidos já leva, etc.)…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 7. COMPENSAÇÃO EXIGE SALDO POSITIVO? ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">A compensação exige mesmo saldo de horas?</h2></div>
+    <p class="q-section-intro">Hoje, sempre que alguém já teve as 2 folgas da semana e não sobra trabalho para lhe dar, o programa marca COMPENSAÇÃO nesse dia — sem verificar se essa pessoa tem mesmo horas extra por compensar.</p>
+
+    <div class="qcard">
+      <p class="q-text">Uma folga de compensação só deve ser dada a quem tiver mesmo saldo de horas extra por compensar?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Sim, só com saldo positivo" /> Sim — sem saldo positivo, não deve ser marcado COMPENSAÇÃO</label>
+        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Não, pode ser dado sem saldo" /> Não — pode ser dado de qualquer forma, com ou sem saldo</label>
+        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">
+          Se exige saldo: alguém sem saldo, já com as 2 folgas da semana, e sem trabalho nesse dia —
+          o que deve acontecer?
+        </p>
+        <textarea
+          class="answer"
+          id="compensacao-saldo-explicacao"
+          name="compensacao_saldo_explicacao"
+          placeholder="Ex: deve ficar destacado noutra tarefa, deve ser mesmo folga extra sem custo, etc…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 8. FORMAÇÃO E TEAM BUILDING vs FÉRIAS ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Formação e team building contam como férias?</h2></div>
+    <p class="q-section-intro">Hoje, um dia de formação ou de team building é tratado como as férias para efeito da escala: reduz os dias de trabalho dessa semana, mas a pessoa mantém sempre direito às 2 folgas normais nos dias que sobram.</p>
+
+    <div class="qcard">
+      <p class="q-text">Isto está certo, ou um dia de formação/team building deve antes contar como um dia de trabalho normal (sem reduzir nada)?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Sim, conta como férias/ausência" /> Sim, deve contar como férias — reduz os dias de trabalho, mantém as 2 folgas</label>
+        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Não, conta como trabalho normal" /> Não, deve contar como um dia de trabalho normal — não reduz nada</label>
+        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Depende" /> Depende — formação e team building são diferentes (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="formacao-explicacao"
+          name="formacao_explicacao"
+          placeholder="Se depende, explique a diferença entre formação e team building…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 9. AJUSTE POR TAMANHO DO NAVIO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação.</p>
+
+    <div class="qcard">
+      <p class="q-text">Confirme (ou corrija) o ajuste, em número de pessoas:</p>
+      <div class="field-row">
+        <label class="field-label">Navio muito pequeno — ajuste à necessidade normal</label>
+        <input class="field-input num" type="number" name="ajuste_navio_pequeno" value="-1" />
+      </div>
+      <div class="field-row">
+        <label class="field-label">Navio muito grande — ajuste à necessidade normal</label>
+        <input class="field-input num" type="number" name="ajuste_navio_grande" value="1" />
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 10. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
+    <p class="q-section-intro">Hoje o programa trata isto como uma regra que nunca cede, mesmo quando falta gente para tudo o resto — nunca pode haver uma chegada ou partida de navio sem ninguém lá.</p>
+
+    <div class="qcard">
+      <p class="q-text">É mesmo estritamente obrigatório ter sempre alguém presente no momento exato da chegada e da partida de um navio — sem exceção nenhuma?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Sim, sempre, sem exceção" /> Sim, sempre — nunca pode haver uma chegada ou partida sem ninguém lá</label>
+        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Não, há exceções" /> Não, há situações em que pode ceder (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="cobertura-explicacao"
+          name="cobertura_explicacao"
+          placeholder="Se há exceções, quais…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 11. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
+    <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
+
+    <div class="qcard">
+      <p class="q-text">Isto está certo, ou o trabalhador deve chegar antes da hora do navio (para já estar pronto quando o navio chega)?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Exatamente à mesma hora" /> Exatamente à mesma hora do navio</label>
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Um pouco antes" /> Um pouco antes — indico quanto tempo</label>
+      </div>
+      <div class="subquestion">
+        <div class="field-row" style="margin-bottom: 0">
+          <label class="field-label">Se «um pouco antes», quantos minutos antes da hora do navio?</label>
+          <input class="field-input num" type="number" name="entrada_antecedencia_minutos" placeholder="minutos" />
+        </div>
       </div>
     </div>
   </section>
@@ -735,6 +929,47 @@
       linhas.push("   Quem trabalha no feriado: " + textoEscolhaRadio("feriado-quem-trabalhou"));
       var feriadoTexto = document.getElementById("feriado-explicacao").value.trim();
       if (feriadoTexto) linhas.push("   Detalhe: " + feriadoTexto);
+      linhas.push("");
+
+      linhas.push("6) Quando não há gente suficiente para tudo");
+      linhas.push("   O que cede primeiro: " + textoEscolhaRadio("escassez-cede"));
+      var escassezTexto = document.getElementById("escassez-explicacao").value.trim();
+      if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
+      linhas.push("");
+
+      linhas.push("7) A compensação exige mesmo saldo de horas?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-exige-saldo"));
+      var compSaldoTexto = document.getElementById("compensacao-saldo-explicacao").value.trim();
+      if (compSaldoTexto) linhas.push("   Detalhe: " + compSaldoTexto);
+      linhas.push("");
+
+      linhas.push("8) Formação e team building contam como férias?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("formacao-conta-ferias"));
+      var formacaoTexto = document.getElementById("formacao-explicacao").value.trim();
+      if (formacaoTexto) linhas.push("   Detalhe: " + formacaoTexto);
+      linhas.push("");
+
+      linhas.push("9) Ajuste por tamanho do navio");
+      linhas.push(
+        "   Navio muito pequeno: " +
+          (document.querySelector('[name="ajuste_navio_pequeno"]').value || "(não preenchido)"),
+      );
+      linhas.push(
+        "   Navio muito grande: " +
+          (document.querySelector('[name="ajuste_navio_grande"]').value || "(não preenchido)"),
+      );
+      linhas.push("");
+
+      linhas.push("10) Cobertura obrigatória na chegada/partida");
+      linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
+      var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
+      if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
+      linhas.push("");
+
+      linhas.push("11) Hora de entrada face à chegada do navio");
+      linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
+      var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
+      if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
 
       return linhas.join("\n");
     }
