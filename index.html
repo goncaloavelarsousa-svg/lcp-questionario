@@ -538,24 +538,28 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 3. QUEM PODE FICAR SOZINHO NA CHEGADA/PARTIDA ============ -->
+  <!-- ============ 3. O DUARTE NA CHEGADA/PARTIDA DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Quem pode ficar sozinho na chegada/partida</h2></div>
+    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">O Duarte conta como os outros na chegada/partida?</h2></div>
 
     <div class="qcard">
       <p class="q-text">
-        Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
-        qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
-        mais baixo — ou tem de ter um nível mínimo?
+        O Duarte deve ser tratado como qualquer outro trabalhador de responsabilidade alta? Ou
+        seja, ele conta para o número de trabalhadores presentes no momento da chegada ou da
+        partida do navio, por exemplo?
       </p>
       <div class="choice-list">
-        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
-        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
-        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
+        <label class="choice"><input type="radio" name="duarte-conta-chegada" value="Sim, conta como qualquer outro" /> Sim, conta como qualquer outro trabalhador de responsabilidade alta</label>
+        <label class="choice"><input type="radio" name="duarte-conta-chegada" value="Não, não conta" /> Não, não conta (explico abaixo)</label>
+        <label class="choice"><input type="radio" name="duarte-conta-chegada" value="Depende" /> Depende (explico abaixo)</label>
       </div>
-      <div class="field-row" style="margin-top: 10px">
-        <label class="field-label">Se precisa de nível mínimo, qual?</label>
-        <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="duarte-explicacao"
+          name="duarte_explicacao"
+          placeholder="Se não conta, ou se depende, explique porquê…"
+        ></textarea>
       </div>
 
       <div class="subquestion">
@@ -1033,10 +1037,10 @@
       if (e2) linhas.push(e2);
       linhas.push("");
 
-      linhas.push("3) Quem pode ficar sozinho na chegada/partida");
-      linhas.push("   Resposta: " + textoEscolhaRadio("chegada-sozinho-nivel"));
-      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
-      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
+      linhas.push("3) O Duarte conta como os outros na chegada/partida?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("duarte-conta-chegada"));
+      var duarteTexto = document.getElementById("duarte-explicacao").value.trim();
+      if (duarteTexto) linhas.push("   Detalhe: " + duarteTexto);
       var e3 = linhaExtra("extra-sozinho");
       if (e3) linhas.push(e3);
       linhas.push("");
