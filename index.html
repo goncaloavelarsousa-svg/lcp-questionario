@@ -694,40 +694,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 7. COMPENSAÇÃO EXIGE SALDO POSITIVO? ============ -->
+  <!-- ============ 7. FORMAÇÃO E TEAM BUILDING vs FÉRIAS ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">A compensação exige mesmo saldo de horas?</h2></div>
-    <p class="q-section-intro">Hoje, sempre que alguém já teve as 2 folgas da semana e não sobra trabalho para lhe dar, o programa marca COMPENSAÇÃO nesse dia — sem verificar se essa pessoa tem mesmo horas extra por compensar.</p>
-
-    <div class="qcard">
-      <p class="q-text">Uma folga de compensação só deve ser dada a quem tiver mesmo saldo de horas extra por compensar?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Sim, só com saldo positivo" /> Sim — sem saldo positivo, não deve ser marcado COMPENSAÇÃO</label>
-        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Não, pode ser dado sem saldo" /> Não — pode ser dado de qualquer forma, com ou sem saldo</label>
-        <label class="choice"><input type="radio" name="compensacao-exige-saldo" value="Depende" /> Depende (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="compensacao-saldo-explicacao"
-          name="compensacao_saldo_explicacao"
-          placeholder="Se depende, de quê…"
-        ></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 8. FORMAÇÃO E TEAM BUILDING vs FÉRIAS ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Formação e team building contam como férias?</h2></div>
+    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Formação e team building contam como férias?</h2></div>
     <p class="q-section-intro">Hoje, um dia de formação ou de team building é tratado como as férias para efeito da escala: reduz os dias de trabalho dessa semana, mas a pessoa mantém sempre direito às 2 folgas normais nos dias que sobram.</p>
 
     <div class="qcard">
@@ -756,9 +725,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 9. AJUSTE POR TAMANHO DO NAVIO ============ -->
+  <!-- ============ 8. AJUSTE POR TAMANHO DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
     <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação.</p>
 
     <div class="qcard">
@@ -782,9 +751,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 10. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
+  <!-- ============ 9. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
+    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
     <p class="q-section-intro">Hoje o programa trata isto como uma regra que nunca cede, mesmo quando falta gente para tudo o resto — nunca pode haver uma chegada ou partida de navio sem ninguém lá.</p>
 
     <div class="qcard">
@@ -812,9 +781,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 11. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
+  <!-- ============ 10. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
     <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
 
     <div class="qcard">
@@ -933,19 +902,13 @@
       if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
       linhas.push("");
 
-      linhas.push("7) A compensação exige mesmo saldo de horas?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-exige-saldo"));
-      var compSaldoTexto = document.getElementById("compensacao-saldo-explicacao").value.trim();
-      if (compSaldoTexto) linhas.push("   Detalhe: " + compSaldoTexto);
-      linhas.push("");
-
-      linhas.push("8) Formação e team building contam como férias?");
+      linhas.push("7) Formação e team building contam como férias?");
       linhas.push("   Resposta: " + textoEscolhaRadio("formacao-conta-ferias"));
       var formacaoTexto = document.getElementById("formacao-explicacao").value.trim();
       if (formacaoTexto) linhas.push("   Detalhe: " + formacaoTexto);
       linhas.push("");
 
-      linhas.push("9) Ajuste por tamanho do navio");
+      linhas.push("8) Ajuste por tamanho do navio");
       linhas.push(
         "   Navio muito pequeno: " +
           (document.querySelector('[name="ajuste_navio_pequeno"]').value || "(não preenchido)"),
@@ -956,13 +919,13 @@
       );
       linhas.push("");
 
-      linhas.push("10) Cobertura obrigatória na chegada/partida");
+      linhas.push("9) Cobertura obrigatória na chegada/partida");
       linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
       var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
       if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
       linhas.push("");
 
-      linhas.push("11) Hora de entrada face à chegada do navio");
+      linhas.push("10) Hora de entrada face à chegada do navio");
       linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
       var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
       if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
