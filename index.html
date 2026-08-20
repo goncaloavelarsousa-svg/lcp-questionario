@@ -419,7 +419,9 @@
     <p class="memo-sub">
       Para o programa ficar completo, faltam confirmar alguns valores e regras que hoje estão
       configurados como melhor estimativa. Preencha diretamente nos campos abaixo — no fim, carregue
-      em «Enviar respostas» e chega automaticamente a Gonçalo, sem conta nem email.
+      em «Enviar respostas» e chega automaticamente a Gonçalo, sem conta nem email. Seja claro e
+      explique com o máximo de detalhe que conseguir em cada pergunta — quanto mais precisas forem
+      as respostas, melhor o programa vai funcionar.
     </p>
   </div>
 
@@ -703,12 +705,30 @@
         <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Sim, sempre, sem exceção" /> Sim, sempre — nunca pode haver uma chegada ou partida sem ninguém lá</label>
         <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Não, há exceções" /> Não, há situações em que pode ceder (explico abaixo)</label>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">
+          Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
+          qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
+          mais baixo — ou tem de ter um nível mínimo?
+        </p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
+        </div>
+        <div class="field-row" style="margin-top: 10px">
+          <label class="field-label">Se precisa de nível mínimo, qual?</label>
+          <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
+        </div>
+      </div>
+
       <div class="subquestion">
         <textarea
           class="answer"
           id="cobertura-explicacao"
           name="cobertura_explicacao"
-          placeholder="Se há exceções, quais…"
+          placeholder="Se há exceções na regra da cobertura, ou se depende no caso de ficar só 1 trabalhador, explique aqui…"
         ></textarea>
       </div>
     </div>
@@ -878,6 +898,9 @@
 
       linhas.push("8) Cobertura obrigatória na chegada/partida");
       linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
+      linhas.push("   Quem pode ficar sozinho: " + textoEscolhaRadio("chegada-sozinho-nivel"));
+      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
+      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
       var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
       if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
       linhas.push("");
