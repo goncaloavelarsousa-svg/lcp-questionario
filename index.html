@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Confirmação de Regras da Escala</title>
+<style>
+  :root {
+    --ground: #eef2f1;
+    --surface: #ffffff;
+    --surface-2: #e4e9e8;
+    --ink: #16232c;
+    --ink-soft: #4c6270;
+    --ink-faint: #7c8f99;
+    --marine: #0e3a56;
+    --marine-strong: #0a2c42;
+    --brass: #a8762c;
+    --brass-soft: #f3e6cf;
+    --line: #d4dbda;
+    --line-strong: #b7c1c0;
+    --good: #2f6e4f;
+    --error: #a4402a;
+    --shadow: 0 1px 2px rgba(14, 58, 86, 0.06), 0 6px 20px rgba(14, 58, 86, 0.05);
+    --serif: Iowan Old Style, Palatino Linotype, Palatino, Georgia, "Noto Serif", serif;
+    --sans:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0e161c;
+      --surface: #16212a;
+      --surface-2: #1d2b35;
+      --ink: #e7edee;
+      --ink-soft: #9db0ba;
+      --ink-faint: #6c8089;
+      --marine: #7fb8dd;
+      --marine-strong: #a9d3ec;
+      --brass: #e0ac5c;
+      --brass-soft: #33291a;
+      --line: #2a3944;
+      --line-strong: #3a4c58;
+      --good: #6fbf94;
+      --error: #e0806a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0e161c;
+    --surface: #16212a;
+    --surface-2: #1d2b35;
+    --ink: #e7edee;
+    --ink-soft: #9db0ba;
+    --ink-faint: #6c8089;
+    --marine: #7fb8dd;
+    --marine-strong: #a9d3ec;
+    --brass: #e0ac5c;
+    --brass-soft: #33291a;
+    --line: #2a3944;
+    --line-strong: #3a4c58;
+    --good: #6fbf94;
+    --error: #e0806a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 48px 20px 120px;
+  }
+  ::selection {
+    background: var(--brass-soft);
+  }
+
+  .doc {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Header, styled like an internal memo ---------- */
+  .memo {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 34px 40px 30px;
+    margin-bottom: 36px;
+  }
+  .memo-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brass);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .memo-eyebrow .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brass);
+  }
+  h1.memo-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--marine-strong);
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .memo-sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* ---------- Bollard divider — the app's own "cabeço" motif ---------- */
+  .bollard-rule {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 44px 0 28px;
+    color: var(--line-strong);
+  }
+  .bollard-rule svg {
+    flex: none;
+    color: var(--brass);
+    opacity: 0.75;
+  }
+  .bollard-rule .rule-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ---------- Sections ---------- */
+  section.q-section {
+    margin-bottom: 6px;
+  }
+  .q-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .q-num {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--brass);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.6em;
+  }
+  h2.q-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 21px;
+    color: var(--marine-strong);
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .q-section-intro {
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    margin: 6px 0 20px 34px;
+    max-width: 58ch;
+  }
+
+  .qcard {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 20px 24px 22px;
+    margin: 0 0 14px 34px;
+  }
+  .qcard:last-child {
+    margin-bottom: 0;
+  }
+
+  .q-context {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+
+  p.q-text {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin: 0 0 14px;
+    max-width: 60ch;
+  }
+
+  textarea.answer {
+    display: block;
+    width: 100%;
+    min-height: 70px;
+    border: 1px solid var(--line-strong);
+    background: var(--ground);
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: var(--sans);
+    color: var(--ink);
+    line-height: 1.5;
+    resize: vertical;
+  }
+  textarea.answer:focus {
+    outline: 2px solid var(--marine);
+    outline-offset: 1px;
+    background: var(--surface);
+  }
+  textarea.answer::placeholder {
+    color: var(--ink-faint);
+  }
+
+  .choice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 4px;
+  }
+  .choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .choice input[type="radio"],
+  .choice input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--marine);
+    width: 15px;
+    height: 15px;
+    flex: none;
+  }
+
+  .subquestion {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .field-row {
+    margin-bottom: 16px;
+  }
+  .field-row:last-of-type {
+    margin-bottom: 0;
+  }
+  .field-label {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .field-input {
+    border: 1px solid var(--line-strong);
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 7px 10px;
+    width: 140px;
+  }
+  .field-input:focus {
+    outline: none;
+    border-color: var(--marine);
+    background: var(--surface);
+  }
+  .field-input.num {
+    width: 56px;
+    text-align: right;
+    padding: 4px 6px;
+    font-size: 12.5px;
+  }
+
+  .pessoa-grid {
+    display: grid;
+    grid-template-columns: 100px auto;
+    justify-content: start;
+    gap: 11px 16px;
+    align-items: center;
+  }
+  .pessoa-nome {
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .pessoa-grid {
+      grid-template-columns: 1fr;
+      gap: 3px 0;
+    }
+  }
+
+  table.matriz {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin: 4px 0 16px;
+  }
+  table.matriz th,
+  table.matriz td {
+    border: 1px solid var(--line);
+    padding: 6px 8px;
+    text-align: left;
+  }
+  table.matriz th {
+    background: var(--surface-2);
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  table.matriz td.edit-cell {
+    padding: 4px 8px;
+    text-align: right;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  /* ---------- Send section ---------- */
+  .send-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .btn {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    padding: 9px 18px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+  .btn-primary {
+    background: var(--marine);
+    color: var(--surface);
+    border: 1px solid var(--marine);
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  .send-status {
+    font-size: 12.5px;
+    color: var(--good);
+    margin: 0 0 10px;
+    min-height: 1em;
+  }
+  .send-status.error {
+    color: var(--error);
+  }
+  textarea#resumo {
+    font-family: var(--mono);
+    font-size: 12px;
+    min-height: 220px;
+    background: var(--surface-2);
+    display: none;
+  }
+  textarea#resumo.visible {
+    display: block;
+  }
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+  .honeypot-field {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ---------- Footer ---------- */
+  .doc-footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    text-align: right;
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .memo {
+      padding: 26px 22px 24px;
+    }
+    .qcard,
+    .q-section-intro {
+      margin-left: 0;
+    }
+    h1.memo-title {
+      font-size: 25px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+  <div class="memo">
+    <div class="memo-eyebrow"><span class="dot"></span>Serviço de Coordenação — Sistema de Gestão de Escalas</div>
+    <h1 class="memo-title">Confirmação de regras da escala</h1>
+    <p class="memo-sub">
+      Para o programa ficar completo, faltam confirmar alguns valores e regras que hoje estão
+      configurados como melhor estimativa. Preencha diretamente nos campos abaixo — no fim, carregue
+      em «Enviar respostas» e chega automaticamente a Gonçalo, sem conta nem email.
+    </p>
+  </div>
+
+  <form id="questionario-form" method="POST" action="https://formspree.io/f/meajvdbw">
+  <input type="hidden" name="_subject" value="Respostas — Confirmação de Regras da Escala" />
+  <input class="honeypot-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+
+  <!-- ============ 1. QUANTAS PESSOAS POR NAVIO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">1</span><h2 class="q-title">Quantas pessoas por navio</h2></div>
+    <p class="q-section-intro">A matriz que decide quantas pessoas cada situação exige nunca foi formalmente confirmada — foi estimada, depois cruzada com os meses reais já publicados.</p>
+
+    <div class="qcard">
+      <p class="q-text">Valores atualmente configurados em Definições (ideal / mínimo) — altere diretamente os números que não estiverem corretos.</p>
+      <div class="table-wrap">
+        <table class="matriz" id="tabela-matriz">
+          <thead><tr><th>Situação</th><th>Ideal</th><th>Mínimo</th></tr></thead>
+          <tbody>
+            <tr><td>1 navio — Trânsito</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_transito_ideal" value="4" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_transito_minimo" value="2" /></td></tr>
+            <tr><td>1 navio — Semi-turnaround</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_semiturnaround_ideal" value="4" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_semiturnaround_minimo" value="3" /></td></tr>
+            <tr><td>1 navio — Turnaround</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_turnaround_ideal" value="5" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_turnaround_minimo" value="3" /></td></tr>
+            <tr><td>2 navios — nenhum turnaround</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_nenhum_ideal" value="4" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_nenhum_minimo" value="2" /></td></tr>
+            <tr><td>2 navios — um turnaround</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_um_ideal" value="5" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_um_minimo" value="3" /></td></tr>
+            <tr><td>2 navios — dois turnarounds</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_dois_ideal" value="6" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_2navios_dois_minimo" value="4" /></td></tr>
+            <tr><td>3 ou mais navios</td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_3ounavios_ideal" value="6" /></td><td class="edit-cell"><input class="field-input num" type="number" name="matriz_3ounavios_minimo" value="5" /></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 2. REGRA DA PERNOITA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">2</span><h2 class="q-title">Regra da pernoita</h2></div>
+    <p class="q-section-intro">Quando um navio fica ancorado durante a noite, alguém tem de garantir o fecho e a abertura — faltam as horas exatas.</p>
+
+    <div class="qcard">
+      <p class="q-text">Havendo um navio que pernoita:</p>
+
+      <div class="field-row">
+        <label class="field-label">Hora de saída do último trabalhador, à noite (fecho)</label>
+        <input class="field-input" type="time" id="pernoita-fecho" name="pernoita_fecho" />
+      </div>
+      <div class="field-row">
+        <label class="field-label">Hora de entrada do primeiro trabalhador, na manhã seguinte (abertura)</label>
+        <input class="field-input" type="time" id="pernoita-abertura" name="pernoita_abertura" />
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Esta regra é igual para todos os navios, ou varia consoante o navio?</p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="pernoita-varia" value="Igual para todos" /> É sempre igual, para qualquer navio</label>
+          <label class="choice"><input type="radio" name="pernoita-varia" value="Varia" /> Varia (explico abaixo)</label>
+        </div>
+        <textarea
+          class="answer"
+          id="pernoita-explicacao"
+          name="pernoita_explicacao"
+          placeholder="Se varia, de que depende (tipo de navio, tamanho, outro motivo) e quais as horas em cada caso…"
+          style="margin-top: 10px"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 3. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
+    <p class="q-section-intro">Quando há uma folga para dar, o programa precisa de saber qual das duas coisas preferir.</p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Havendo hipótese de colocar mais trabalhadores do que o mínimo estabelecido (a caminho do
+        número ótimo/ideal) ou, em vez disso, dar folga de compensação a alguém (para compensar
+        horas extra já feitas), o que deve ser preferido?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Chegar ao número ótimo de trabalhadores" /> Chegar ao número ótimo de trabalhadores</label>
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Fazer a compensação de horas" /> Fazer a compensação de horas</label>
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea class="answer" id="compensacao-explicacao" name="compensacao_explicacao" placeholder="Se depende, de quê…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 4. NÍVEL DE RESPONSABILIDADE ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Nível de responsabilidade da equipa</h2></div>
+    <p class="q-section-intro">O programa já tem um lugar para isto por pessoa — só falta preencher.</p>
+
+    <div class="qcard">
+      <p class="q-text">Qual o nível de responsabilidade de cada um (número)?</p>
+      <div class="pessoa-grid" id="grid-niveis">
+        <span class="pessoa-nome">Marcos</span>
+        <input class="field-input num" type="number" name="nivel_marcos" placeholder="nível" />
+        <span class="pessoa-nome">Ricardo</span>
+        <input class="field-input num" type="number" name="nivel_ricardo" placeholder="nível" />
+        <span class="pessoa-nome">Nelson</span>
+        <input class="field-input num" type="number" name="nivel_nelson" placeholder="nível" />
+        <span class="pessoa-nome">Filippe</span>
+        <input class="field-input num" type="number" name="nivel_filippe" placeholder="nível" />
+        <span class="pessoa-nome">Duarte</span>
+        <input class="field-input num" type="number" name="nivel_duarte" placeholder="nível" />
+        <span class="pessoa-nome">Lucílio</span>
+        <input class="field-input num" type="number" name="nivel_lucilio" placeholder="nível" />
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ ENVIAR RESPOSTAS ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><h2 class="q-title">Enviar respostas</h2></div>
+    <p class="q-section-intro">Não é preciso conta nem login. Carregue em enviar — as respostas chegam automaticamente a Gonçalo.</p>
+
+    <div class="qcard">
+      <textarea id="resumo" name="resumo" class="answer" readonly></textarea>
+      <div class="send-actions">
+        <button type="submit" class="btn btn-primary" id="btn-enviar">Enviar respostas</button>
+      </div>
+      <p class="send-status" id="send-status"></p>
+      <noscript><p class="send-status">O envio precisa de JavaScript ativo no navegador.</p></noscript>
+    </div>
+  </section>
+
+  </form>
+
+  <div class="doc-footer">Sistema de Gestão de Escalas — Porto de Lisboa</div>
+</div>
+
+<script>
+  (function () {
+    function textoEscolhaRadio(nome) {
+      var el = document.querySelector('input[name="' + nome + '"]:checked');
+      return el ? el.value : "(não respondido)";
+    }
+
+    function gerarResumo() {
+      var linhas = [];
+      linhas.push("Confirmação de Regras da Escala — respostas");
+      linhas.push("");
+
+      linhas.push("1) Quantas pessoas por navio (Ideal / Mínimo)");
+      document.querySelectorAll("#tabela-matriz tbody tr").forEach(function (tr) {
+        var situacao = tr.children[0].textContent.trim();
+        var ideal = tr.children[1].querySelector("input").value || "?";
+        var minimo = tr.children[2].querySelector("input").value || "?";
+        linhas.push("   " + situacao + " — ideal: " + ideal + ", mínimo: " + minimo);
+      });
+      linhas.push("");
+
+      linhas.push("2) Regra da pernoita");
+      var fecho = document.getElementById("pernoita-fecho").value || "(não preenchido)";
+      var abertura = document.getElementById("pernoita-abertura").value || "(não preenchido)";
+      linhas.push("   Saída do último trabalhador (fecho): " + fecho);
+      linhas.push("   Entrada do primeiro trabalhador (abertura): " + abertura);
+      linhas.push("   Regra igual para todos os navios? " + textoEscolhaRadio("pernoita-varia"));
+      var pernoitaTexto = document.getElementById("pernoita-explicacao").value.trim();
+      if (pernoitaTexto) linhas.push("   Detalhe: " + pernoitaTexto);
+      linhas.push("");
+
+      linhas.push("3) Compensação ou número ótimo?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-otimo"));
+      var compTexto = document.getElementById("compensacao-explicacao").value.trim();
+      if (compTexto) linhas.push("   Detalhe: " + compTexto);
+      linhas.push("");
+
+      linhas.push("4) Nível de responsabilidade");
+      var grid = document.getElementById("grid-niveis");
+      var nomes = grid.querySelectorAll(".pessoa-nome");
+      var inputs = grid.querySelectorAll("input");
+      nomes.forEach(function (nomeEl, i) {
+        var valor = inputs[i].value || "(não preenchido)";
+        linhas.push("   " + nomeEl.textContent + ": " + valor);
+      });
+
+      return linhas.join("\n");
+    }
+
+    var form = document.getElementById("questionario-form");
+    var resumoArea = document.getElementById("resumo");
+    var status = document.getElementById("send-status");
+    var btnEnviar = document.getElementById("btn-enviar");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      resumoArea.value = gerarResumo();
+      resumoArea.classList.add("visible");
+
+      status.textContent = "";
+      status.classList.remove("error");
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "A enviar…";
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) {
+          if (res.ok) {
+            status.textContent = "Respostas enviadas com sucesso — obrigado.";
+            btnEnviar.textContent = "Enviado ✓";
+          } else {
+            throw new Error("resposta não ok");
+          }
+        })
+        .catch(function () {
+          status.textContent = "Não foi possível enviar — verifique a ligação à internet e tente novamente.";
+          status.classList.add("error");
+          btnEnviar.disabled = false;
+          btnEnviar.textContent = "Enviar respostas";
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>
