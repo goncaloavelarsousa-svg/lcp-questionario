@@ -675,6 +675,13 @@
         <label class="choice"><input type="radio" name="feriado-quem-folgou" value="O feriado conta como uma das 2 folgas (fica só com direito a mais 1)" /> O feriado conta como uma das 2 folgas (fica só com direito a mais 1)</label>
         <label class="choice"><input type="radio" name="feriado-quem-folgou" value="Outro" /> Outro (explico abaixo)</label>
       </div>
+      <textarea
+        class="answer"
+        id="feriado-folga-explicacao"
+        name="feriado_folga_explicacao"
+        placeholder="Se escolheu «Outro», explique aqui…"
+        style="margin-top: 10px"
+      ></textarea>
 
       <div class="subquestion">
         <p class="q-text" style="margin-bottom: 10px">Quem trabalha no feriado (por necessidade de navio):</p>
@@ -683,14 +690,12 @@
           <label class="choice"><input type="radio" name="feriado-quem-trabalhou" value="Tem direito a mais uma folga (a terceira) para compensar o feriado não usufruído" /> Tem direito a mais uma folga (a terceira da semana) para compensar o feriado não usufruído</label>
           <label class="choice"><input type="radio" name="feriado-quem-trabalhou" value="Outro" /> Outro (explico abaixo)</label>
         </div>
-      </div>
-
-      <div class="subquestion">
         <textarea
           class="answer"
-          id="feriado-explicacao"
-          name="feriado_explicacao"
-          placeholder="Se escolheu «Outro» em alguma das duas, explique aqui…"
+          id="feriado-trabalho-explicacao"
+          name="feriado_trabalho_explicacao"
+          placeholder="Se escolheu «Outro», explique aqui…"
+          style="margin-top: 10px"
         ></textarea>
       </div>
     </div>
@@ -959,9 +964,11 @@
 
       linhas.push("6) Folgas numa semana com feriado a meio");
       linhas.push("   Quem folga no feriado: " + textoEscolhaRadio("feriado-quem-folgou"));
+      var feriadoFolgaTexto = document.getElementById("feriado-folga-explicacao").value.trim();
+      if (feriadoFolgaTexto) linhas.push("   Detalhe: " + feriadoFolgaTexto);
       linhas.push("   Quem trabalha no feriado: " + textoEscolhaRadio("feriado-quem-trabalhou"));
-      var feriadoTexto = document.getElementById("feriado-explicacao").value.trim();
-      if (feriadoTexto) linhas.push("   Detalhe: " + feriadoTexto);
+      var feriadoTrabalhoTexto = document.getElementById("feriado-trabalho-explicacao").value.trim();
+      if (feriadoTrabalhoTexto) linhas.push("   Detalhe: " + feriadoTrabalhoTexto);
       linhas.push("");
 
       linhas.push("7) Quando não há gente suficiente para tudo");
