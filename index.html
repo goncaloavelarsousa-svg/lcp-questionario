@@ -750,6 +750,30 @@
     <div class="rule-line"></div>
   </div>
 
+  <!-- ============ 10. OUTRAS CONSIDERAÇÕES ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Outras considerações</h2></div>
+    <p class="q-section-intro">Fora do que já foi perguntado, há algo que ache importante para a escala ficar mais próxima do que fazem na prática?</p>
+
+    <div class="qcard">
+      <p class="q-text">Espaço livre — tem algo a acrescentar que possa ser útil para o racional do programa ficar mais próximo do ideal? Alguma coisa que ache importante ter em conta?</p>
+      <textarea
+        class="answer"
+        id="outras-consideracoes"
+        name="outras_consideracoes"
+        placeholder="Escreva aqui à vontade…"
+      ></textarea>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
   <!-- ============ ENVIAR RESPOSTAS ============ -->
   <section class="q-section">
     <div class="q-section-head"><h2 class="q-title">Enviar respostas</h2></div>
@@ -855,6 +879,11 @@
       linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
       var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
       if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
+      linhas.push("");
+
+      linhas.push("10) Outras considerações");
+      var outras = document.getElementById("outras-consideracoes").value.trim();
+      linhas.push("   " + (outras || "(não preenchido)"));
 
       return linhas.join("\n");
     }
