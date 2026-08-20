@@ -666,40 +666,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 7. FORMAÇÃO E TEAM BUILDING vs FÉRIAS ============ -->
+  <!-- ============ 7. AJUSTE POR TAMANHO DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Formação e team building contam como férias?</h2></div>
-    <p class="q-section-intro">Hoje, um dia de formação ou de team building é tratado como as férias para efeito da escala: reduz os dias de trabalho dessa semana, mas a pessoa mantém sempre direito às 2 folgas normais nos dias que sobram.</p>
-
-    <div class="qcard">
-      <p class="q-text">Isto está certo, ou um dia de formação/team building deve antes contar como um dia de trabalho normal (sem reduzir nada)?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Sim, conta como férias/ausência" /> Sim, deve contar como férias — reduz os dias de trabalho, mantém as 2 folgas</label>
-        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Não, conta como trabalho normal" /> Não, deve contar como um dia de trabalho normal — não reduz nada</label>
-        <label class="choice"><input type="radio" name="formacao-conta-ferias" value="Depende" /> Depende — formação e team building são diferentes (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="formacao-explicacao"
-          name="formacao_explicacao"
-          placeholder="Se depende, explique a diferença entre formação e team building…"
-        ></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 8. AJUSTE POR TAMANHO DO NAVIO ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
     <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação.</p>
 
     <div class="qcard">
@@ -723,9 +692,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 9. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
+  <!-- ============ 8. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
     <p class="q-section-intro">Hoje o programa trata isto como uma regra que nunca cede, mesmo quando falta gente para tudo o resto — nunca pode haver uma chegada ou partida de navio sem ninguém lá.</p>
 
     <div class="qcard">
@@ -753,9 +722,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 10. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
+  <!-- ============ 9. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
     <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
 
     <div class="qcard">
@@ -865,13 +834,7 @@
       if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
       linhas.push("");
 
-      linhas.push("7) Formação e team building contam como férias?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("formacao-conta-ferias"));
-      var formacaoTexto = document.getElementById("formacao-explicacao").value.trim();
-      if (formacaoTexto) linhas.push("   Detalhe: " + formacaoTexto);
-      linhas.push("");
-
-      linhas.push("8) Ajuste por tamanho do navio");
+      linhas.push("7) Ajuste por tamanho do navio");
       linhas.push(
         "   Navio muito pequeno: " +
           (document.querySelector('[name="ajuste_navio_pequeno"]').value || "(não preenchido)"),
@@ -882,13 +845,13 @@
       );
       linhas.push("");
 
-      linhas.push("9) Cobertura obrigatória na chegada/partida");
+      linhas.push("8) Cobertura obrigatória na chegada/partida");
       linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
       var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
       if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
       linhas.push("");
 
-      linhas.push("10) Hora de entrada face à chegada do navio");
+      linhas.push("9) Hora de entrada face à chegada do navio");
       linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
       var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
       if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
