@@ -499,9 +499,56 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 2. REGRA DA PERNOITA ============ -->
+  <!-- ============ 2. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">2</span><h2 class="q-title">Regra da pernoita</h2></div>
+    <div class="q-section-head"><span class="q-num">2</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
+
+    <div class="qcard">
+      <p class="q-text">É mesmo estritamente obrigatório ter sempre alguém presente no momento exato da chegada e da partida de um navio — sem exceção nenhuma?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Sim, sempre, sem exceção" /> Sim, sempre — nunca pode haver uma chegada ou partida sem ninguém lá</label>
+        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Não, há exceções" /> Não, há situações em que pode ceder (explico abaixo)</label>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">
+          Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
+          qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
+          mais baixo — ou tem de ter um nível mínimo?
+        </p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
+          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
+        </div>
+        <div class="field-row" style="margin-top: 10px">
+          <label class="field-label">Se precisa de nível mínimo, qual?</label>
+          <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="cobertura-explicacao"
+          name="cobertura_explicacao"
+          placeholder="Se há exceções na regra da cobertura, ou se depende no caso de ficar só 1 trabalhador, explique aqui…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 3. REGRA DA PERNOITA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Regra da pernoita</h2></div>
     <p class="q-section-intro">Quando um navio fica ancorado durante a noite, alguém tem de garantir o fecho e a abertura — faltam as horas exatas.</p>
 
     <div class="qcard">
@@ -541,10 +588,10 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 3. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
+  <!-- ============ 4. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
-    <p class="q-section-intro">Quando há uma folga para dar, o programa precisa de saber qual das duas coisas preferir.</p>
+    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
+    <p class="q-section-intro">Quando há um espaço por preencher, o que devemos priorizar?</p>
 
     <div class="qcard">
       <p class="q-text">
@@ -571,10 +618,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 4. NÍVEL DE RESPONSABILIDADE ============ -->
+  <!-- ============ 5. NÍVEL DE RESPONSABILIDADE ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Nível de responsabilidade da equipa</h2></div>
-    <p class="q-section-intro">O programa já tem um lugar para isto por pessoa, mas ainda não usa o número para nada na escala — falta perceber se deve, e como.</p>
+    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Nível de responsabilidade da equipa</h2></div>
 
     <div class="qcard">
       <p class="q-text">Qual o nível de responsabilidade de cada um (número)?</p>
@@ -617,9 +663,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 5. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
+  <!-- ============ 6. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
+    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
     <p class="q-section-intro">Queríamos perceber como funciona com a vossa equipa. Numa semana, há um feriado a meio da semana. Nesse dia, há navios na mesma — uns trabalhadores têm direito ao feriado, outros têm de trabalhar por necessidade de cobertura. Quais são as implicações disto?</p>
 
     <div class="qcard">
@@ -658,9 +704,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 6. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
+  <!-- ============ 7. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
+    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
     <p class="q-section-intro">Nalgumas semanas não dá para cobrir todos os navios e ainda garantir as 2 folgas a toda a gente. O programa já tem de escolher o que cede primeiro — falta confirmar se escolhe bem.</p>
 
     <div class="qcard">
@@ -693,9 +739,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 7. AJUSTE POR TAMANHO DO NAVIO ============ -->
+  <!-- ============ 8. AJUSTE POR TAMANHO DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
     <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação.</p>
 
     <div class="qcard">
@@ -707,54 +753,6 @@
       <div class="field-row">
         <label class="field-label">Navio muito grande — ajuste à necessidade normal</label>
         <input class="field-input num" type="number" name="ajuste_navio_grande" value="1" />
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 8. COBERTURA OBRIGATÓRIA NA CHEGADA/PARTIDA ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Cobertura obrigatória na chegada/partida</h2></div>
-    <p class="q-section-intro">Hoje o programa trata isto como uma regra que nunca cede, mesmo quando falta gente para tudo o resto — nunca pode haver uma chegada ou partida de navio sem ninguém lá.</p>
-
-    <div class="qcard">
-      <p class="q-text">É mesmo estritamente obrigatório ter sempre alguém presente no momento exato da chegada e da partida de um navio — sem exceção nenhuma?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Sim, sempre, sem exceção" /> Sim, sempre — nunca pode haver uma chegada ou partida sem ninguém lá</label>
-        <label class="choice"><input type="radio" name="cobertura-obrigatoria" value="Não, há exceções" /> Não, há situações em que pode ceder (explico abaixo)</label>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">
-          Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
-          qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
-          mais baixo — ou tem de ter um nível mínimo?
-        </p>
-        <div class="choice-list">
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
-        </div>
-        <div class="field-row" style="margin-top: 10px">
-          <label class="field-label">Se precisa de nível mínimo, qual?</label>
-          <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
-        </div>
-      </div>
-
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="cobertura-explicacao"
-          name="cobertura_explicacao"
-          placeholder="Se há exceções na regra da cobertura, ou se depende no caso de ficar só 1 trabalhador, explique aqui…"
-        ></textarea>
       </div>
     </div>
   </section>
@@ -922,7 +920,16 @@
       if (matrizComentario) linhas.push("   Comentário: " + matrizComentario);
       linhas.push("");
 
-      linhas.push("2) Regra da pernoita");
+      linhas.push("2) Cobertura obrigatória na chegada/partida");
+      linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
+      linhas.push("   Quem pode ficar sozinho: " + textoEscolhaRadio("chegada-sozinho-nivel"));
+      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
+      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
+      var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
+      if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
+      linhas.push("");
+
+      linhas.push("3) Regra da pernoita");
       var fecho = document.getElementById("pernoita-fecho").value || "(não preenchido)";
       var abertura = document.getElementById("pernoita-abertura").value || "(não preenchido)";
       linhas.push("   Saída do último trabalhador (fecho): " + fecho);
@@ -932,13 +939,13 @@
       if (pernoitaTexto) linhas.push("   Detalhe: " + pernoitaTexto);
       linhas.push("");
 
-      linhas.push("3) Compensação ou número ótimo?");
+      linhas.push("4) Compensação ou número ótimo?");
       linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-otimo"));
       var compTexto = document.getElementById("compensacao-explicacao").value.trim();
       if (compTexto) linhas.push("   Detalhe: " + compTexto);
       linhas.push("");
 
-      linhas.push("4) Nível de responsabilidade");
+      linhas.push("5) Nível de responsabilidade");
       var grid = document.getElementById("grid-niveis");
       var nomes = grid.querySelectorAll(".pessoa-nome");
       var inputs = grid.querySelectorAll("input");
@@ -950,20 +957,20 @@
       linhas.push("   Implicação/objetivo: " + (nivelTexto || "(não preenchido)"));
       linhas.push("");
 
-      linhas.push("5) Folgas numa semana com feriado a meio");
+      linhas.push("6) Folgas numa semana com feriado a meio");
       linhas.push("   Quem folga no feriado: " + textoEscolhaRadio("feriado-quem-folgou"));
       linhas.push("   Quem trabalha no feriado: " + textoEscolhaRadio("feriado-quem-trabalhou"));
       var feriadoTexto = document.getElementById("feriado-explicacao").value.trim();
       if (feriadoTexto) linhas.push("   Detalhe: " + feriadoTexto);
       linhas.push("");
 
-      linhas.push("6) Quando não há gente suficiente para tudo");
+      linhas.push("7) Quando não há gente suficiente para tudo");
       linhas.push("   O que cede primeiro: " + textoEscolhaRadio("escassez-cede"));
       var escassezTexto = document.getElementById("escassez-explicacao").value.trim();
       if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
       linhas.push("");
 
-      linhas.push("7) Ajuste por tamanho do navio");
+      linhas.push("8) Ajuste por tamanho do navio");
       linhas.push(
         "   Navio muito pequeno: " +
           (document.querySelector('[name="ajuste_navio_pequeno"]').value || "(não preenchido)"),
@@ -972,15 +979,6 @@
         "   Navio muito grande: " +
           (document.querySelector('[name="ajuste_navio_grande"]').value || "(não preenchido)"),
       );
-      linhas.push("");
-
-      linhas.push("8) Cobertura obrigatória na chegada/partida");
-      linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
-      linhas.push("   Quem pode ficar sozinho: " + textoEscolhaRadio("chegada-sozinho-nivel"));
-      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
-      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
-      var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
-      if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
       linhas.push("");
 
       linhas.push("9) Hora de entrada face à chegada do navio");
