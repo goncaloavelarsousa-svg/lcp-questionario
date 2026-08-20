@@ -568,55 +568,14 @@
 
       <div class="subquestion">
         <p class="q-text" style="margin-bottom: 10px">
-          Este nível deve ter alguma implicação em quem fica com quem, ou é só informativo? (pode
-          marcar mais do que uma)
+          Qual é a implicação ou o objetivo deste nível de responsabilidade — para que deve servir
+          na prática?
         </p>
-        <div class="choice-list">
-          <label class="choice">
-            <input
-              type="checkbox"
-              name="nivel-implicacao"
-              value="Garantir sempre alguém de nível mais alto por turno/dia"
-            />
-            Garantir que há sempre alguém de nível mais alto presente em cada turno/dia
-          </label>
-          <label class="choice">
-            <input
-              type="checkbox"
-              name="nivel-implicacao"
-              value="Juntar sempre níveis diferentes no mesmo turno"
-            />
-            Tentar sempre juntar um nível mais alto com um mais baixo no mesmo turno — nunca deixar
-            só júniores sozinhos
-          </label>
-          <label class="choice">
-            <input
-              type="checkbox"
-              name="nivel-implicacao"
-              value="Decidir que navios/situações cada nível pode cobrir sozinho"
-            />
-            Decidir que tipo de navio ou situação cada nível pode cobrir sozinho (ex: só alguém de
-            nível mais alto pode ficar sozinho num turnaround ou numa pernoita)
-          </label>
-          <label class="choice">
-            <input
-              type="checkbox"
-              name="nivel-implicacao"
-              value="Influenciar quem tem prioridade num fim de semana completo de folga"
-            />
-            Influenciar quem tem prioridade a receber um fim de semana completo de folga (o
-            programa já roda isso pela equipa por justiça — o nível deve pesar nessa escolha?)
-          </label>
-          <label class="choice">
-            <input type="checkbox" name="nivel-implicacao" value="Só informativo, sem regra na escala" />
-            Não tem regra nenhuma associada — é só informação de referência
-          </label>
-        </div>
         <textarea
           class="answer"
           id="nivel-explicacao"
           name="nivel_explicacao"
-          placeholder="Explique como deve funcionar na prática — que nível mínimo cada situação exige, que combinações fazem sentido (ou nunca podem acontecer), se há alguém que nunca deve ficar sozinho num turno, etc."
+          placeholder="Explique livremente — pode dar exemplos se ajudar (ex: quem pode ficar sozinho num turno, quem deve estar sempre presente num turnaround, como combinar níveis diferentes no mesmo turno, etc.)"
           style="margin-top: 10px"
         ></textarea>
       </div>
@@ -849,16 +808,6 @@
       return el ? el.value : "(não respondido)";
     }
 
-    function textoEscolhasCheckbox(nome) {
-      var els = document.querySelectorAll('input[name="' + nome + '"]:checked');
-      if (els.length === 0) return "(nenhuma marcada)";
-      return Array.from(els)
-        .map(function (el) {
-          return el.value;
-        })
-        .join("; ");
-    }
-
     function gerarResumo() {
       var linhas = [];
       linhas.push("Confirmação de Regras da Escala — respostas");
@@ -899,9 +848,8 @@
         var valor = inputs[i].value || "(não preenchido)";
         linhas.push("   " + nomeEl.textContent + ": " + valor);
       });
-      linhas.push("   Implicações na escala: " + textoEscolhasCheckbox("nivel-implicacao"));
       var nivelTexto = document.getElementById("nivel-explicacao").value.trim();
-      if (nivelTexto) linhas.push("   Detalhe: " + nivelTexto);
+      linhas.push("   Implicação/objetivo: " + (nivelTexto || "(não preenchido)"));
       linhas.push("");
 
       linhas.push("5) Folgas numa semana com feriado a meio");
