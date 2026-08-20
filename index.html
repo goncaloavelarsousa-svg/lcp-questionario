@@ -731,13 +731,20 @@
       <p class="q-text">Isto está certo, ou o trabalhador deve chegar antes da hora do navio (para já estar pronto quando o navio chega)?</p>
       <div class="choice-list">
         <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Exatamente à mesma hora" /> Exatamente à mesma hora do navio</label>
-        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Um pouco antes" /> Um pouco antes — indico quanto tempo</label>
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Um pouco antes" /> Um pouco antes, para já estar pronto quando o navio chega</label>
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Depende" /> Depende (explico abaixo)</label>
       </div>
       <div class="subquestion">
-        <div class="field-row" style="margin-bottom: 0">
+        <div class="field-row">
           <label class="field-label">Se «um pouco antes», quantos minutos antes da hora do navio?</label>
           <input class="field-input num" type="number" name="entrada_antecedencia_minutos" placeholder="minutos" />
         </div>
+        <textarea
+          class="answer"
+          id="entrada-explicacao"
+          name="entrada_explicacao"
+          placeholder="Se depende, de quê (tipo de navio, horário, outro motivo)…"
+        ></textarea>
       </div>
     </div>
   </section>
@@ -879,6 +886,8 @@
       linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
       var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
       if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
+      var entradaTexto = document.getElementById("entrada-explicacao").value.trim();
+      if (entradaTexto) linhas.push("   Detalhe: " + entradaTexto);
       linhas.push("");
 
       linhas.push("10) Outras considerações");
