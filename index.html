@@ -448,6 +448,19 @@
           </tbody>
         </table>
       </div>
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">
+          Esta tabela assume que há dois valores por situação — um ideal e um mínimo. Se isso não
+          fizer sentido, e houver antes só um número obrigatório fixo por situação (sem distinção
+          entre ideal e mínimo), diga aqui:
+        </p>
+        <textarea
+          class="answer"
+          id="matriz-comentario"
+          name="matriz_comentario"
+          placeholder="Ex: não há ideal/mínimo, há só um número obrigatório por situação — para X navios do tipo Y, tem de estar sempre Z pessoas…"
+        ></textarea>
+      </div>
     </div>
   </section>
 
@@ -858,6 +871,8 @@
         var minimo = tr.children[2].querySelector("input").value || "?";
         linhas.push("   " + situacao + " — ideal: " + ideal + ", mínimo: " + minimo);
       });
+      var matrizComentario = document.getElementById("matriz-comentario").value.trim();
+      if (matrizComentario) linhas.push("   Comentário: " + matrizComentario);
       linhas.push("");
 
       linhas.push("2) Regra da pernoita");
