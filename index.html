@@ -488,6 +488,11 @@
           placeholder="Ex: não há ideal/mínimo, há só um número obrigatório por situação — para X navios do tipo Y, tem de estar sempre Z pessoas…"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-matriz" name="extra_matriz" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -511,29 +516,17 @@
       </div>
 
       <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">
-          Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
-          qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
-          mais baixo — ou tem de ter um nível mínimo?
-        </p>
-        <div class="choice-list">
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
-          <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
-        </div>
-        <div class="field-row" style="margin-top: 10px">
-          <label class="field-label">Se precisa de nível mínimo, qual?</label>
-          <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
-        </div>
-      </div>
-
-      <div class="subquestion">
         <textarea
           class="answer"
           id="cobertura-explicacao"
           name="cobertura_explicacao"
-          placeholder="Se há exceções na regra da cobertura, ou se depende no caso de ficar só 1 trabalhador, explique aqui…"
+          placeholder="Se há exceções, quais…"
         ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-cobertura" name="extra_cobertura" placeholder="Opcional…"></textarea>
       </div>
     </div>
   </section>
@@ -546,9 +539,44 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 3. REGRA DA PERNOITA ============ -->
+  <!-- ============ 3. QUEM PODE FICAR SOZINHO NA CHEGADA/PARTIDA ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Regra da pernoita</h2></div>
+    <div class="q-section-head"><span class="q-num">3</span><h2 class="q-title">Quem pode ficar sozinho na chegada/partida</h2></div>
+
+    <div class="qcard">
+      <p class="q-text">
+        Quando só é preciso 1 trabalhador nesse momento (chegada ou partida sozinho), pode ser
+        qualquer um da equipa — por exemplo o Duarte, ou alguém com um nível de responsabilidade
+        mais baixo — ou tem de ter um nível mínimo?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Pode ser qualquer trabalhador" /> Pode ser qualquer trabalhador, independentemente do nível</label>
+        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Precisa de um nível mínimo" /> Precisa de ter pelo menos um nível mínimo — indico qual abaixo</label>
+        <label class="choice"><input type="radio" name="chegada-sozinho-nivel" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="field-row" style="margin-top: 10px">
+        <label class="field-label">Se precisa de nível mínimo, qual?</label>
+        <input class="field-input num" type="number" name="chegada_sozinho_nivel_minimo" placeholder="nível" />
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-sozinho" name="extra_sozinho" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 4. REGRA DA PERNOITA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Regra da pernoita</h2></div>
     <p class="q-section-intro">Quando um navio fica ancorado durante a noite, alguém tem de garantir o fecho e a abertura — faltam as horas exatas.</p>
 
     <div class="qcard">
@@ -577,6 +605,11 @@
           style="margin-top: 10px"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-pernoita" name="extra_pernoita" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -588,9 +621,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 4. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
+  <!-- ============ 5. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
+    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
     <p class="q-section-intro">Quando há um espaço por preencher, o que devemos priorizar?</p>
 
     <div class="qcard">
@@ -607,6 +640,11 @@
       <div class="subquestion">
         <textarea class="answer" id="compensacao-explicacao" name="compensacao_explicacao" placeholder="Se depende, de quê…"></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-compensacao" name="extra_compensacao" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -618,9 +656,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 5. NÍVEL DE RESPONSABILIDADE ============ -->
+  <!-- ============ 6. NÍVEL DE RESPONSABILIDADE ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Nível de responsabilidade da equipa</h2></div>
+    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Nível de responsabilidade da equipa</h2></div>
 
     <div class="qcard">
       <p class="q-text">Qual o nível de responsabilidade de cada um (número)?</p>
@@ -652,6 +690,11 @@
           style="margin-top: 10px"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-nivel" name="extra_nivel" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -663,9 +706,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 6. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
+  <!-- ============ 7. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
+    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
     <p class="q-section-intro">Queríamos perceber como funciona com a vossa equipa. Numa semana, há um feriado a meio da semana. Nesse dia, há navios na mesma — uns trabalhadores têm direito ao feriado, outros têm de trabalhar por necessidade de cobertura. Quais são as implicações disto?</p>
 
     <div class="qcard">
@@ -698,6 +741,11 @@
           style="margin-top: 10px"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-feriado" name="extra_feriado" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -709,9 +757,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 7. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
+  <!-- ============ 8. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">7</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
     <p class="q-section-intro">Nalgumas semanas não dá para cobrir todos os navios e ainda garantir o ótimo para os trabalhadores. Nesses casos, o que devemos ceder primeiro.</p>
 
     <div class="qcard">
@@ -733,6 +781,11 @@
           placeholder="Se depende, de quê (quem já está mais cansado, quantos dias seguidos já leva, etc.)…"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-escassez" name="extra_escassez" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -744,20 +797,21 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 8. AJUSTE POR TAMANHO DO NAVIO ============ -->
+  <!-- ============ 9. AJUSTE POR TAMANHO DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
-    <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação.</p>
+    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação. Esta lógica foi estimada e cruzada com os meses reais já publicados.</p>
 
     <div class="qcard">
-      <p class="q-text">Confirme (ou corrija) o ajuste, em número de pessoas:</p>
-      <div class="field-row">
-        <label class="field-label">Navio muito pequeno — ajuste à necessidade normal</label>
-        <input class="field-input num" type="number" name="ajuste_navio_pequeno" value="-1" />
+      <p class="q-text">Confirma esta lógica — navio muito pequeno tira 1 pessoa, navio muito grande acrescenta 1?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Sim, confirmo esta lógica" /> Sim, confirmo esta lógica</label>
+        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Não, não deve ser aplicada" /> Não, não deve ser aplicada</label>
       </div>
-      <div class="field-row">
-        <label class="field-label">Navio muito grande — ajuste à necessidade normal</label>
-        <input class="field-input num" type="number" name="ajuste_navio_grande" value="1" />
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-ajuste" name="extra_ajuste" placeholder="Opcional…"></textarea>
       </div>
     </div>
   </section>
@@ -770,9 +824,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 9. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
+  <!-- ============ 10. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
+    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
     <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
 
     <div class="qcard">
@@ -784,8 +838,8 @@
       </div>
       <div class="subquestion">
         <div class="field-row">
-          <label class="field-label">Se «um pouco antes», quantos minutos antes da hora do navio?</label>
-          <input class="field-input num" type="number" name="entrada_antecedencia_minutos" placeholder="minutos" />
+          <label class="field-label">Se «um pouco antes», quanto tempo antes da hora do navio?</label>
+          <input class="field-input" type="text" name="entrada_antecedencia" placeholder="ex: 15 minutos, meia hora…" />
         </div>
         <textarea
           class="answer"
@@ -793,6 +847,11 @@
           name="entrada_explicacao"
           placeholder="Se depende, de quê (tipo de navio, horário, outro motivo)…"
         ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-entrada" name="extra_entrada" placeholder="Opcional…"></textarea>
       </div>
     </div>
   </section>
@@ -805,9 +864,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 10. FOLGA DE FIM DE SEMANA À VOLTA DE FÉRIAS vs JUSTIÇA DE ROTAÇÃO ============ -->
+  <!-- ============ 11. FOLGA DE FIM DE SEMANA À VOLTA DE FÉRIAS vs JUSTIÇA DE ROTAÇÃO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Folga à volta de férias conta para a justiça de rotação?</h2></div>
+    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Folga à volta de férias conta para a justiça de rotação?</h2></div>
     <p class="q-section-intro">
       Um pouco de contexto: o programa já tenta dar a cada trabalhador, uma vez por mês, um fim de
       semana completo de folga — e vai rodando essa vez pela equipa, dando-a a quem ainda não teve
@@ -835,6 +894,11 @@
           placeholder="Se depende, de quê…"
         ></textarea>
       </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-ferias-rotacao" name="extra_ferias_rotacao" placeholder="Opcional…"></textarea>
+      </div>
     </div>
   </section>
 
@@ -846,9 +910,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 11. OUTRAS CONSIDERAÇÕES ============ -->
+  <!-- ============ 12. OUTRAS CONSIDERAÇÕES ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Outras considerações</h2></div>
+    <div class="q-section-head"><span class="q-num">12</span><h2 class="q-title">Outras considerações</h2></div>
     <p class="q-section-intro">Fora do que já foi perguntado, há algo que ache importante para a escala ficar mais próxima do que fazem na prática?</p>
 
     <div class="qcard">
@@ -897,6 +961,11 @@
       return el ? el.value : "(não respondido)";
     }
 
+    function linhaExtra(id) {
+      var texto = document.getElementById(id).value.trim();
+      return texto ? "   Algo a acrescentar: " + texto : null;
+    }
+
     function gerarResumo() {
       var linhas = [];
       linhas.push("Confirmação de Regras da Escala — respostas");
@@ -923,18 +992,27 @@
       );
       var matrizComentario = document.getElementById("matriz-comentario").value.trim();
       if (matrizComentario) linhas.push("   Comentário: " + matrizComentario);
+      var e1 = linhaExtra("extra-matriz");
+      if (e1) linhas.push(e1);
       linhas.push("");
 
       linhas.push("2) Cobertura obrigatória na chegada/partida");
       linhas.push("   Resposta: " + textoEscolhaRadio("cobertura-obrigatoria"));
-      linhas.push("   Quem pode ficar sozinho: " + textoEscolhaRadio("chegada-sozinho-nivel"));
-      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
-      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
       var coberturaTexto = document.getElementById("cobertura-explicacao").value.trim();
       if (coberturaTexto) linhas.push("   Detalhe: " + coberturaTexto);
+      var e2 = linhaExtra("extra-cobertura");
+      if (e2) linhas.push(e2);
       linhas.push("");
 
-      linhas.push("3) Regra da pernoita");
+      linhas.push("3) Quem pode ficar sozinho na chegada/partida");
+      linhas.push("   Resposta: " + textoEscolhaRadio("chegada-sozinho-nivel"));
+      var nivelMinimoSozinho = document.querySelector('[name="chegada_sozinho_nivel_minimo"]').value;
+      if (nivelMinimoSozinho) linhas.push("   Nível mínimo exigido: " + nivelMinimoSozinho);
+      var e3 = linhaExtra("extra-sozinho");
+      if (e3) linhas.push(e3);
+      linhas.push("");
+
+      linhas.push("4) Regra da pernoita");
       var fecho = document.getElementById("pernoita-fecho").value || "(não preenchido)";
       var abertura = document.getElementById("pernoita-abertura").value || "(não preenchido)";
       linhas.push("   Saída do último trabalhador (fecho): " + fecho);
@@ -942,15 +1020,19 @@
       linhas.push("   Regra igual para todos os navios? " + textoEscolhaRadio("pernoita-varia"));
       var pernoitaTexto = document.getElementById("pernoita-explicacao").value.trim();
       if (pernoitaTexto) linhas.push("   Detalhe: " + pernoitaTexto);
+      var e4 = linhaExtra("extra-pernoita");
+      if (e4) linhas.push(e4);
       linhas.push("");
 
-      linhas.push("4) Compensação ou número ótimo?");
+      linhas.push("5) Compensação ou número ótimo?");
       linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-otimo"));
       var compTexto = document.getElementById("compensacao-explicacao").value.trim();
       if (compTexto) linhas.push("   Detalhe: " + compTexto);
+      var e5 = linhaExtra("extra-compensacao");
+      if (e5) linhas.push(e5);
       linhas.push("");
 
-      linhas.push("5) Nível de responsabilidade");
+      linhas.push("6) Nível de responsabilidade");
       var grid = document.getElementById("grid-niveis");
       var nomes = grid.querySelectorAll(".pessoa-nome");
       var inputs = grid.querySelectorAll("input");
@@ -960,49 +1042,54 @@
       });
       var nivelTexto = document.getElementById("nivel-explicacao").value.trim();
       linhas.push("   Implicação/objetivo: " + (nivelTexto || "(não preenchido)"));
+      var e6 = linhaExtra("extra-nivel");
+      if (e6) linhas.push(e6);
       linhas.push("");
 
-      linhas.push("6) Folgas numa semana com feriado a meio");
+      linhas.push("7) Folgas numa semana com feriado a meio");
       linhas.push("   Quem folga no feriado: " + textoEscolhaRadio("feriado-quem-folgou"));
       var feriadoFolgaTexto = document.getElementById("feriado-folga-explicacao").value.trim();
       if (feriadoFolgaTexto) linhas.push("   Detalhe: " + feriadoFolgaTexto);
       linhas.push("   Quem trabalha no feriado: " + textoEscolhaRadio("feriado-quem-trabalhou"));
       var feriadoTrabalhoTexto = document.getElementById("feriado-trabalho-explicacao").value.trim();
       if (feriadoTrabalhoTexto) linhas.push("   Detalhe: " + feriadoTrabalhoTexto);
+      var e7 = linhaExtra("extra-feriado");
+      if (e7) linhas.push(e7);
       linhas.push("");
 
-      linhas.push("7) Quando não há gente suficiente para tudo");
+      linhas.push("8) Quando não há gente suficiente para tudo");
       linhas.push("   O que cede primeiro: " + textoEscolhaRadio("escassez-cede"));
       var escassezTexto = document.getElementById("escassez-explicacao").value.trim();
       if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
+      var e8 = linhaExtra("extra-escassez");
+      if (e8) linhas.push(e8);
       linhas.push("");
 
-      linhas.push("8) Ajuste por tamanho do navio");
-      linhas.push(
-        "   Navio muito pequeno: " +
-          (document.querySelector('[name="ajuste_navio_pequeno"]').value || "(não preenchido)"),
-      );
-      linhas.push(
-        "   Navio muito grande: " +
-          (document.querySelector('[name="ajuste_navio_grande"]').value || "(não preenchido)"),
-      );
+      linhas.push("9) Ajuste por tamanho do navio");
+      linhas.push("   Confirma a lógica (-1 pequeno / +1 grande)? " + textoEscolhaRadio("ajuste-tamanho-confirma"));
+      var e9 = linhaExtra("extra-ajuste");
+      if (e9) linhas.push(e9);
       linhas.push("");
 
-      linhas.push("9) Hora de entrada face à chegada do navio");
+      linhas.push("10) Hora de entrada face à chegada do navio");
       linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
-      var antecedencia = document.querySelector('[name="entrada_antecedencia_minutos"]').value;
-      if (antecedencia) linhas.push("   Minutos de antecedência: " + antecedencia);
+      var antecedencia = document.querySelector('[name="entrada_antecedencia"]').value;
+      if (antecedencia) linhas.push("   Antecedência: " + antecedencia);
       var entradaTexto = document.getElementById("entrada-explicacao").value.trim();
       if (entradaTexto) linhas.push("   Detalhe: " + entradaTexto);
+      var e10 = linhaExtra("extra-entrada");
+      if (e10) linhas.push(e10);
       linhas.push("");
 
-      linhas.push("10) Folga à volta de férias conta para a justiça de rotação?");
+      linhas.push("11) Folga à volta de férias conta para a justiça de rotação?");
       linhas.push("   Resposta: " + textoEscolhaRadio("ferias-fds-conta-rotacao"));
       var feriasFdsTexto = document.getElementById("ferias-fds-explicacao").value.trim();
       if (feriasFdsTexto) linhas.push("   Detalhe: " + feriasFdsTexto);
+      var e11 = linhaExtra("extra-ferias-rotacao");
+      if (e11) linhas.push(e11);
       linhas.push("");
 
-      linhas.push("11) Outras considerações");
+      linhas.push("12) Outras considerações");
       var outras = document.getElementById("outras-consideracoes").value.trim();
       linhas.push("   " + (outras || "(não preenchido)"));
 
