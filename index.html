@@ -563,6 +563,47 @@
     <div class="rule-line"></div>
   </div>
 
+  <!-- ============ 5. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
+    <p class="q-section-intro">Numa semana com um feriado a meio há navios na mesma — uns trabalhadores ficam de folga nesse dia, outros têm de trabalhar por necessidade de cobertura. Falta confirmar se o direito às 2 folgas da semana se mantém na mesma para os dois grupos.</p>
+
+    <div class="qcard">
+      <p class="q-text">Quem tem o feriado de folga (não trabalha nesse dia):</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="feriado-quem-folgou" value="Mantém direito às 2 folgas normais" /> Mantém o direito às 2 folgas normais da semana</label>
+        <label class="choice"><input type="radio" name="feriado-quem-folgou" value="O feriado conta como uma das 2 folgas" /> O feriado conta como uma das 2 folgas (fica só com direito a mais 1)</label>
+        <label class="choice"><input type="radio" name="feriado-quem-folgou" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Quem trabalha no feriado (por necessidade de navio):</p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="feriado-quem-trabalhou" value="Mantém direito às 2 folgas normais" /> Mantém o direito às 2 folgas normais da semana, sem mais nada</label>
+          <label class="choice"><input type="radio" name="feriado-quem-trabalhou" value="Tem direito a algo extra" /> Tem direito a algo extra além das 2 folgas (explico abaixo)</label>
+          <label class="choice"><input type="radio" name="feriado-quem-trabalhou" value="Depende" /> Depende (explico abaixo)</label>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="feriado-explicacao"
+          name="feriado_explicacao"
+          placeholder="Detalhe o que muda em cada caso, se «Depende» ou «algo extra» em alguma das duas…"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
   <!-- ============ ENVIAR RESPOSTAS ============ -->
   <section class="q-section">
     <div class="q-section-head"><h2 class="q-title">Enviar respostas</h2></div>
@@ -628,6 +669,13 @@
         var valor = inputs[i].value || "(não preenchido)";
         linhas.push("   " + nomeEl.textContent + ": " + valor);
       });
+      linhas.push("");
+
+      linhas.push("5) Folgas numa semana com feriado a meio");
+      linhas.push("   Quem folga no feriado: " + textoEscolhaRadio("feriado-quem-folgou"));
+      linhas.push("   Quem trabalha no feriado: " + textoEscolhaRadio("feriado-quem-trabalhou"));
+      var feriadoTexto = document.getElementById("feriado-explicacao").value.trim();
+      if (feriadoTexto) linhas.push("   Detalhe: " + feriadoTexto);
 
       return linhas.join("\n");
     }
