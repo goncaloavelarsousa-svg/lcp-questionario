@@ -970,9 +970,148 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 14. OUTRAS CONSIDERAÇÕES ============ -->
+  <!-- ============ 14. TEMPO DEPOIS DA CHEGADA ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">14</span><h2 class="q-title">Outras considerações</h2></div>
+    <div class="q-section-head"><span class="q-num">14</span><h2 class="q-title">Quanto tempo depois da chegada o trabalhador tem de ficar?</h2></div>
+    <p class="q-section-intro">
+      Hoje, quando um navio chega tarde (a partir da hora de fecho configurada), o programa assume
+      que a pessoa que estava de serviço pode sair logo que o navio chega — sem ficar mais tempo
+      depois disso. Por exemplo: um navio que vai pernoitar chega às 20h, a pessoa que cobre essa
+      chegada está a trabalhar desde as 11h e sai às 20h, mal o navio atraca.
+    </p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Isto está certo? Ou é preciso ficar mais algum tempo depois da chegada (para tratar de
+        formalidades, amarração, outra necessidade), mesmo quando o navio chega tarde?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="permanencia-chegada" value="Está certo — pode sair logo que o navio chega, mesmo tarde" /> Está certo — pode sair logo que o navio chega, mesmo tarde</label>
+        <label class="choice"><input type="radio" name="permanencia-chegada" value="Não, é preciso ficar mais tempo depois" /> Não, é preciso ficar mais tempo depois (explico abaixo)</label>
+        <label class="choice"><input type="radio" name="permanencia-chegada" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <div class="field-row">
+          <label class="field-label">Se é preciso ficar mais tempo, quanto tempo depois da chegada, no mínimo?</label>
+          <input class="field-input" type="text" name="permanencia_chegada_tempo" placeholder="ex: 30 minutos, 1 hora…" />
+        </div>
+        <textarea
+          class="answer"
+          id="permanencia-chegada-explicacao"
+          name="permanencia_chegada_explicacao"
+          placeholder="Se depende, de quê (tipo de navio, hora de chegada, outro motivo)…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-permanencia-chegada" name="extra_permanencia_chegada" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 15. JANELA DE COMPENSAÇÃO DE UMA SEMANA COM SÓ 1 FOLGA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">15</span><h2 class="q-title">Até quando pode ser paga uma semana com só 1 folga?</h2></div>
+    <p class="q-section-intro">
+      Quando uma semana só dá para dar 1 folga a alguém (em vez das 2 normais), o programa hoje
+      procura, noutra semana do mês, o dia livre mais próximo dessa semana em falta — antes ou
+      depois — para lhe dar aí a folga que ficou por dar. Não tem de ser logo a semana seguinte, pode
+      ser 2 ou mais semanas antes ou depois, desde que seja o mais perto possível de onde faltou.
+    </p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Isto está certo? Ou deve ser sempre a semana imediatamente a seguir (ou a anterior), nunca
+        mais longe do que isso?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Está certo — pode ser a semana mais próxima com espaço livre" /> Está certo — pode ser a semana mais próxima com espaço livre, mesmo que não seja logo a seguinte</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Não, tem de ser sempre a semana imediatamente a seguir ou anterior" /> Não, tem de ser sempre a semana imediatamente a seguir (ou a anterior)</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Há um limite diferente" /> Há um limite diferente (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <div class="field-row">
+          <label class="field-label">Se há um limite diferente, quantas semanas no máximo antes/depois?</label>
+          <input class="field-input num" type="number" name="janela_compensacao_semanas" />
+        </div>
+        <textarea
+          class="answer"
+          id="janela-compensacao-explicacao"
+          name="janela_compensacao_explicacao"
+          placeholder="Explique aqui, se for preciso…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-janela-compensacao" name="extra_janela_compensacao" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 16. FOLGAS JUNTAS VS. UMA AO FIM DE SEMANA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">16</span><h2 class="q-title">Folgas juntas ou uma ao fim de semana?</h2></div>
+    <p class="q-section-intro">
+      O programa hoje prefere sempre juntar as duas folgas da semana em dias seguidos (por exemplo,
+      terça e quarta), mesmo quando isso significa que nenhuma delas cai ao fim de semana. Nunca
+      desfaz duas folgas já juntas só para tentar arranjar uma ao fim de semana mais tarde.
+    </p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Entre ter as duas folgas seguidas a meio da semana (ex: terça e quarta) ou ter as folgas
+        separadas com uma delas ao fim de semana (ex: quarta e sábado), qual devemos preferir?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir juntas, mesmo sem fim de semana" /> Preferir juntas, mesmo sem fim de semana (ex: terça e quarta)</label>
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir uma ao fim de semana, mesmo separadas" /> Preferir uma ao fim de semana, mesmo separadas (ex: quarta e sábado)</label>
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="folgas-juntas-explicacao"
+          name="folgas_juntas_explicacao"
+          placeholder="Se depende, de quê…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto?</p>
+        <textarea class="answer" id="extra-folgas-juntas" name="extra_folgas_juntas" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 17. OUTRAS CONSIDERAÇÕES ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">17</span><h2 class="q-title">Outras considerações</h2></div>
     <p class="q-section-intro">Fora do que já foi perguntado, há algo que ache importante para a escala ficar mais próxima do que fazem na prática?</p>
 
     <div class="qcard">
@@ -1162,7 +1301,35 @@
       if (e11) linhas.push(e11);
       linhas.push("");
 
-      linhas.push("14) Outras considerações");
+      linhas.push("14) Quanto tempo depois da chegada o trabalhador tem de ficar?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("permanencia-chegada"));
+      var permanenciaTempo = document.querySelector('[name="permanencia_chegada_tempo"]').value;
+      if (permanenciaTempo) linhas.push("   Tempo mínimo depois da chegada: " + permanenciaTempo);
+      var permanenciaTexto = document.getElementById("permanencia-chegada-explicacao").value.trim();
+      if (permanenciaTexto) linhas.push("   Detalhe: " + permanenciaTexto);
+      var e12 = linhaExtra("extra-permanencia-chegada");
+      if (e12) linhas.push(e12);
+      linhas.push("");
+
+      linhas.push("15) Até quando pode ser paga uma semana com só 1 folga?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("janela-compensacao"));
+      var janelaSemanas = document.querySelector('[name="janela_compensacao_semanas"]').value;
+      if (janelaSemanas) linhas.push("   Limite (semanas): " + janelaSemanas);
+      var janelaTexto = document.getElementById("janela-compensacao-explicacao").value.trim();
+      if (janelaTexto) linhas.push("   Detalhe: " + janelaTexto);
+      var e13 = linhaExtra("extra-janela-compensacao");
+      if (e13) linhas.push(e13);
+      linhas.push("");
+
+      linhas.push("16) Folgas juntas ou uma ao fim de semana?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("folgas-juntas-vs-fds"));
+      var folgasJuntasTexto = document.getElementById("folgas-juntas-explicacao").value.trim();
+      if (folgasJuntasTexto) linhas.push("   Detalhe: " + folgasJuntasTexto);
+      var e14 = linhaExtra("extra-folgas-juntas");
+      if (e14) linhas.push(e14);
+      linhas.push("");
+
+      linhas.push("17) Outras considerações");
       var outras = document.getElementById("outras-consideracoes").value.trim();
       linhas.push("   " + (outras || "(não preenchido)"));
 
