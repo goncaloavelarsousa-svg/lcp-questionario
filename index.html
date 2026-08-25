@@ -981,7 +981,11 @@
         mais algum tempo depois (para tratar de formalidades, amarração, outra necessidade).
       </p>
       <div class="field-row">
-        <label class="field-label">Tempo mínimo de permanência depois da chegada</label>
+        <label class="field-label">Exemplo: um navio chega às 22h e vai pernoitar. A que horas podia o trabalhador que o recebeu sair?</label>
+        <input class="field-input" type="time" name="permanencia_chegada_exemplo_hora" />
+      </div>
+      <div class="field-row">
+        <label class="field-label">Em geral (fora deste exemplo), tempo mínimo de permanência depois da chegada</label>
         <input class="field-input" type="text" name="permanencia_chegada_tempo" placeholder="ex: 0 minutos (pode sair logo), 30 minutos, 1 hora…" />
       </div>
 
@@ -1299,8 +1303,10 @@
       linhas.push("");
 
       linhas.push("14) Quanto tempo depois da chegada o trabalhador tem de ficar?");
+      var permanenciaExemplo = document.querySelector('[name="permanencia_chegada_exemplo_hora"]').value;
+      linhas.push("   Exemplo (navio chega às 22h, pernoita) — hora de saída: " + (permanenciaExemplo || "(não preenchido)"));
       var permanenciaTempo = document.querySelector('[name="permanencia_chegada_tempo"]').value;
-      linhas.push("   Tempo mínimo depois da chegada: " + (permanenciaTempo || "(não preenchido)"));
+      linhas.push("   Tempo mínimo depois da chegada, em geral: " + (permanenciaTempo || "(não preenchido)"));
       linhas.push("   Varia consoante o caso? " + textoEscolhaRadio("permanencia-chegada-varia"));
       var permanenciaTexto = document.getElementById("permanencia-chegada-explicacao").value.trim();
       if (permanenciaTexto) linhas.push("   Detalhe: " + permanenciaTexto);
