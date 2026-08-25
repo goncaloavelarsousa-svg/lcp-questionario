@@ -567,9 +567,71 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 4. O DUARTE NA CHEGADA/PARTIDA DO NAVIO ============ -->
+  <!-- ============ 4. AJUSTE POR TAMANHO DO NAVIO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">O Duarte conta como os outros na chegada/partida?</h2></div>
+    <div class="q-section-head"><span class="q-num">4</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
+    <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação. Esta lógica foi estimada e cruzada com os meses reais já publicados.</p>
+
+    <div class="qcard">
+      <p class="q-text">Confirma esta lógica — navio muito pequeno tira 1 pessoa, navio muito grande acrescenta 1?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Sim, confirmo esta lógica" /> Sim, confirmo esta lógica</label>
+        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Não, não deve ser aplicada" /> Não, não deve ser aplicada</label>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-ajuste" name="extra_ajuste" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 5. NAVIO EM PRIMEIRA VIAGEM ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Navio em primeira viagem exige algo diferente?</h2></div>
+    <p class="q-section-intro">Hoje, um navio em primeira viagem não tem nenhum efeito na escala — só aparece como estatística, sem alterar quantas pessoas são precisas nem quem as cobre.</p>
+
+    <div class="qcard">
+      <p class="q-text">Faz sentido um navio em primeira viagem exigir algo diferente (mais gente, alguém mais experiente/sénior), ou não faz diferença nenhuma na prática?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="primeira-viagem" value="Não faz diferença" /> Não faz diferença — trata-se como qualquer outro navio</label>
+        <label class="choice"><input type="radio" name="primeira-viagem" value="Faz diferença" /> Faz diferença (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="primeira-viagem-explicacao"
+          name="primeira_viagem_explicacao"
+          placeholder="Se faz diferença, explique como (mais gente, alguém mais experiente, etc.) e em que situações…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-primeira-viagem" name="extra_primeira_viagem" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 6. O DUARTE NA CHEGADA/PARTIDA DO NAVIO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">O Duarte conta como os outros na chegada/partida?</h2></div>
 
     <div class="qcard">
       <p class="q-text">
@@ -594,88 +656,6 @@
       <div class="subquestion">
         <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
         <textarea class="answer" id="extra-sozinho" name="extra_sozinho" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 5. REGRA DA PERNOITA ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">5</span><h2 class="q-title">Regra da pernoita</h2></div>
-    <p class="q-section-intro">Quando um navio fica ancorado durante a noite, alguém tem de garantir o fecho e a abertura — faltam as horas exatas.</p>
-
-    <div class="qcard">
-      <p class="q-text">Havendo um navio que pernoita:</p>
-
-      <div class="field-row">
-        <label class="field-label">Hora de saída do último trabalhador, à noite (fecho)</label>
-        <input class="field-input" type="time" id="pernoita-fecho" name="pernoita_fecho" />
-      </div>
-      <div class="field-row">
-        <label class="field-label">Hora de entrada do primeiro trabalhador, na manhã seguinte (abertura)</label>
-        <input class="field-input" type="time" id="pernoita-abertura" name="pernoita_abertura" />
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Esta regra é igual para todos os navios, ou varia consoante o navio?</p>
-        <div class="choice-list">
-          <label class="choice"><input type="radio" name="pernoita-varia" value="Igual para todos" /> É sempre igual, para qualquer navio</label>
-          <label class="choice"><input type="radio" name="pernoita-varia" value="Varia" /> Varia (explico abaixo)</label>
-        </div>
-        <textarea
-          class="answer"
-          id="pernoita-explicacao"
-          name="pernoita_explicacao"
-          placeholder="Se varia, de que depende (tipo de navio, tamanho, outro motivo) e quais as horas em cada caso…"
-          style="margin-top: 10px"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-pernoita" name="extra_pernoita" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 6. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">6</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
-    <p class="q-section-intro">Quando há um espaço por preencher, o que devemos priorizar?</p>
-
-    <div class="qcard">
-      <p class="q-text">
-        Havendo hipótese de colocar mais trabalhadores do que o mínimo estabelecido (a caminho do
-        número ótimo/ideal) ou, em vez disso, dar folga de compensação a alguém (para compensar
-        horas extra já feitas), o que deve ser preferido?
-      </p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="compensacao-otimo" value="Chegar ao número ótimo de trabalhadores" /> Chegar ao número ótimo de trabalhadores</label>
-        <label class="choice"><input type="radio" name="compensacao-otimo" value="Fazer a compensação de horas" /> Fazer a compensação de horas</label>
-        <label class="choice"><input type="radio" name="compensacao-otimo" value="Depende" /> Depende (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea class="answer" id="compensacao-explicacao" name="compensacao_explicacao" placeholder="Se depende, de quê…"></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-compensacao" name="extra_compensacao" placeholder="Opcional…"></textarea>
       </div>
     </div>
   </section>
@@ -738,9 +718,284 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 8. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
+  <!-- ============ 8. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
+    <div class="q-section-head"><span class="q-num">8</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
+    <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
+
+    <div class="qcard">
+      <p class="q-text">Isto está certo, ou o trabalhador deve chegar antes da hora do navio (para já estar pronto quando o navio chega)?</p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Exatamente à mesma hora" /> Exatamente à mesma hora do navio</label>
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Deve chegar antes" /> Deve chegar antes, para já estar pronto quando o navio chega</label>
+        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <div class="field-row">
+          <label class="field-label">Se deve chegar antes, quanto tempo antes da hora do navio?</label>
+          <input class="field-input" type="text" name="entrada_antecedencia" placeholder="ex: 1 hora…" />
+        </div>
+        <textarea
+          class="answer"
+          id="entrada-explicacao"
+          name="entrada_explicacao"
+          placeholder="Se depende, de quê (tipo de navio, horário, outro motivo)…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-entrada" name="extra_entrada" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 9. TEMPO DEPOIS DA CHEGADA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Quanto tempo depois da chegada o trabalhador tem de ficar?</h2></div>
+
+    <div class="qcard">
+      <p class="q-text">
+        Depois de um navio chegar (atracar), durante quanto tempo é preciso ter sempre alguém
+        presente? Pode ser zero — a pessoa pode sair logo nesse momento — ou pode ser preciso ficar
+        mais algum tempo depois (para tratar de formalidades, amarração, outra necessidade).
+      </p>
+      <div class="field-row">
+        <label class="field-label">Exemplo: um navio chega às 22h e vai pernoitar. A que horas podia o trabalhador que o recebeu sair?</label>
+        <input class="field-input" type="time" name="permanencia_chegada_exemplo_hora" />
+      </div>
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Este tempo é sempre igual, ou varia consoante o tipo de navio, a hora de chegada, se pernoita, etc.?</p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="permanencia-chegada-varia" value="Igual em todos os casos" /> É sempre igual, em qualquer caso</label>
+          <label class="choice"><input type="radio" name="permanencia-chegada-varia" value="Varia" /> Varia (explico abaixo)</label>
+        </div>
+        <textarea
+          class="answer"
+          id="permanencia-chegada-explicacao"
+          name="permanencia_chegada_explicacao"
+          placeholder="Se varia, de que depende e qual o tempo em cada caso…"
+          style="margin-top: 10px"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-permanencia-chegada" name="extra_permanencia_chegada" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 10. REGRA DA PERNOITA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Regra da pernoita</h2></div>
+    <p class="q-section-intro">Quando um navio fica ancorado durante a noite, alguém tem de garantir o fecho e a abertura — faltam as horas exatas.</p>
+
+    <div class="qcard">
+      <p class="q-text">Havendo um navio que pernoita:</p>
+
+      <div class="field-row">
+        <label class="field-label">Hora de saída do último trabalhador, à noite (fecho)</label>
+        <input class="field-input" type="time" id="pernoita-fecho" name="pernoita_fecho" />
+      </div>
+      <div class="field-row">
+        <label class="field-label">Hora de entrada do primeiro trabalhador, na manhã seguinte (abertura)</label>
+        <input class="field-input" type="time" id="pernoita-abertura" name="pernoita_abertura" />
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Esta regra é igual para todos os navios, ou varia consoante o navio?</p>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="pernoita-varia" value="Igual para todos" /> É sempre igual, para qualquer navio</label>
+          <label class="choice"><input type="radio" name="pernoita-varia" value="Varia" /> Varia (explico abaixo)</label>
+        </div>
+        <textarea
+          class="answer"
+          id="pernoita-explicacao"
+          name="pernoita_explicacao"
+          placeholder="Se varia, de que depende (tipo de navio, tamanho, outro motivo) e quais as horas em cada caso…"
+          style="margin-top: 10px"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-pernoita" name="extra_pernoita" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 11. COMPENSAÇÃO OU NÚMERO ÓTIMO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Compensação ou número ótimo?</h2></div>
+    <p class="q-section-intro">Quando há um espaço por preencher, o que devemos priorizar?</p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Havendo hipótese de colocar mais trabalhadores do que o mínimo estabelecido (a caminho do
+        número ótimo/ideal) ou, em vez disso, dar folga de compensação a alguém (para compensar
+        horas extra já feitas), o que deve ser preferido?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Chegar ao número ótimo de trabalhadores" /> Chegar ao número ótimo de trabalhadores</label>
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Fazer a compensação de horas" /> Fazer a compensação de horas</label>
+        <label class="choice"><input type="radio" name="compensacao-otimo" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea class="answer" id="compensacao-explicacao" name="compensacao_explicacao" placeholder="Se depende, de quê…"></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-compensacao" name="extra_compensacao" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 12. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">12</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
+    <p class="q-section-intro">Nalgumas semanas não dá para cobrir todos os navios e ainda garantir o ótimo para os trabalhadores. Nesses casos, o que devemos ceder primeiro.</p>
+
+    <div class="qcard">
+      <p class="q-text">
+        Numa semana assim, entre pedir a alguém mais um dia seguido de trabalho mantendo as 2
+        folgas, ou manter os dias de trabalho normais mas reduzir essa
+        pessoa a só 1 folga nessa semana (compensada na seguinte), o que deve ceder primeiro?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="escassez-cede" value="Mais um dia seguido de trabalho, mantendo as 2 folgas" /> Mais um dia seguido de trabalho — as 2 folgas mantêm-se</label>
+        <label class="choice"><input type="radio" name="escassez-cede" value="Só 1 folga essa semana, compensada depois" /> Só 1 folga nessa semana — compensada logo que possível a seguir</label>
+        <label class="choice"><input type="radio" name="escassez-cede" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="escassez-explicacao"
+          name="escassez_explicacao"
+          placeholder="Se depende, de quê (quem já está mais cansado, quantos dias seguidos já leva, etc.)…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-escassez" name="extra_escassez" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 13. JANELA DE COMPENSAÇÃO DE UMA SEMANA COM SÓ 1 FOLGA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">13</span><h2 class="q-title">Até quando pode ser paga uma semana com só 1 folga?</h2></div>
+
+    <div class="qcard">
+      <p class="q-text">
+        Quando uma semana só dá para dar 1 folga a alguém (em vez das 2 normais), o objetivo é
+        compensar essa folga em falta na semana imediatamente anterior ou seguinte. Se não for
+        possível compensar logo nessa semana adjacente, o que deve acontecer?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Pode alargar sem limite, até encontrar semana com espaço" /> Pode alargar a semanas mais afastadas, sem limite, até encontrar uma com espaço</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Pode alargar, mas no máximo 2 semanas de diferença" /> Pode alargar, mas no máximo 2 semanas de diferença (antes ou depois)</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Não pode alargar, só a semana imediatamente anterior ou seguinte" /> Não pode alargar — só a semana imediatamente anterior ou seguinte, nunca mais longe</label>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-janela-compensacao" name="extra_janela_compensacao" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 14. FOLGAS JUNTAS VS. UMA AO FIM DE SEMANA ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">14</span><h2 class="q-title">Folgas juntas ou uma ao fim de semana?</h2></div>
+
+    <div class="qcard">
+      <p class="q-text">
+        Entre ter as duas folgas seguidas a meio da semana (ex: terça e quarta) ou ter as folgas
+        separadas com uma delas ao fim de semana (ex: quarta e sábado), qual devemos preferir?
+      </p>
+      <div class="choice-list">
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir juntas, mesmo sem fim de semana" /> Preferir juntas, mesmo sem fim de semana (ex: terça e quarta)</label>
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir uma ao fim de semana, mesmo separadas" /> Preferir uma ao fim de semana, mesmo separadas (ex: quarta e sábado)</label>
+        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Depende" /> Depende (explico abaixo)</label>
+      </div>
+      <div class="subquestion">
+        <textarea
+          class="answer"
+          id="folgas-juntas-explicacao"
+          name="folgas_juntas_explicacao"
+          placeholder="Se depende, de quê…"
+        ></textarea>
+      </div>
+
+      <div class="subquestion">
+        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
+        <textarea class="answer" id="extra-folgas-juntas" name="extra_folgas_juntas" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="bollard-rule">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="rule-line"></div>
+  </div>
+
+  <!-- ============ 15. FOLGAS NUMA SEMANA COM FERIADO A MEIO ============ -->
+  <section class="q-section">
+    <div class="q-section-head"><span class="q-num">15</span><h2 class="q-title">Folgas numa semana com feriado a meio</h2></div>
     <p class="q-section-intro">Queríamos perceber como funciona com a vossa equipa. Numa semana, há um feriado a meio da semana. Nesse dia, há navios na mesma — uns trabalhadores têm direito ao feriado, outros têm de trabalhar por necessidade de cobertura. Quais são as implicações disto?</p>
 
     <div class="qcard">
@@ -789,151 +1044,9 @@
     <div class="rule-line"></div>
   </div>
 
-  <!-- ============ 9. QUANDO NÃO HÁ GENTE SUFICIENTE PARA TUDO ============ -->
+  <!-- ============ 16. FOLGA DE FIM DE SEMANA À VOLTA DE FÉRIAS vs JUSTIÇA DE ROTAÇÃO ============ -->
   <section class="q-section">
-    <div class="q-section-head"><span class="q-num">9</span><h2 class="q-title">Quando não há gente suficiente para tudo</h2></div>
-    <p class="q-section-intro">Nalgumas semanas não dá para cobrir todos os navios e ainda garantir o ótimo para os trabalhadores. Nesses casos, o que devemos ceder primeiro.</p>
-
-    <div class="qcard">
-      <p class="q-text">
-        Numa semana assim, entre pedir a alguém mais um dia seguido de trabalho mantendo as 2
-        folgas, ou manter os dias de trabalho normais mas reduzir essa
-        pessoa a só 1 folga nessa semana (compensada na seguinte), o que deve ceder primeiro?
-      </p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="escassez-cede" value="Mais um dia seguido de trabalho, mantendo as 2 folgas" /> Mais um dia seguido de trabalho — as 2 folgas mantêm-se</label>
-        <label class="choice"><input type="radio" name="escassez-cede" value="Só 1 folga essa semana, compensada depois" /> Só 1 folga nessa semana — compensada logo que possível a seguir</label>
-        <label class="choice"><input type="radio" name="escassez-cede" value="Depende" /> Depende (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="escassez-explicacao"
-          name="escassez_explicacao"
-          placeholder="Se depende, de quê (quem já está mais cansado, quantos dias seguidos já leva, etc.)…"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-escassez" name="extra_escassez" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 10. AJUSTE POR TAMANHO DO NAVIO ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">10</span><h2 class="q-title">Ajuste por tamanho do navio</h2></div>
-    <p class="q-section-intro">Hoje, um navio muito pequeno tira 1 pessoa à necessidade normal do dia, e um navio muito grande acrescenta 1 pessoa — sempre comparado com um navio de tamanho normal na mesma situação. Esta lógica foi estimada e cruzada com os meses reais já publicados.</p>
-
-    <div class="qcard">
-      <p class="q-text">Confirma esta lógica — navio muito pequeno tira 1 pessoa, navio muito grande acrescenta 1?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Sim, confirmo esta lógica" /> Sim, confirmo esta lógica</label>
-        <label class="choice"><input type="radio" name="ajuste-tamanho-confirma" value="Não, não deve ser aplicada" /> Não, não deve ser aplicada</label>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-ajuste" name="extra_ajuste" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 11. NAVIO EM PRIMEIRA VIAGEM ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">11</span><h2 class="q-title">Navio em primeira viagem exige algo diferente?</h2></div>
-    <p class="q-section-intro">Hoje, um navio em primeira viagem não tem nenhum efeito na escala — só aparece como estatística, sem alterar quantas pessoas são precisas nem quem as cobre.</p>
-
-    <div class="qcard">
-      <p class="q-text">Faz sentido um navio em primeira viagem exigir algo diferente (mais gente, alguém mais experiente/sénior), ou não faz diferença nenhuma na prática?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="primeira-viagem" value="Não faz diferença" /> Não faz diferença — trata-se como qualquer outro navio</label>
-        <label class="choice"><input type="radio" name="primeira-viagem" value="Faz diferença" /> Faz diferença (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="primeira-viagem-explicacao"
-          name="primeira_viagem_explicacao"
-          placeholder="Se faz diferença, explique como (mais gente, alguém mais experiente, etc.) e em que situações…"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-primeira-viagem" name="extra_primeira_viagem" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 12. HORA DE ENTRADA DO PRIMEIRO TRABALHADOR ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">12</span><h2 class="q-title">Hora de entrada face à chegada do navio</h2></div>
-    <p class="q-section-intro">Hoje, se o primeiro navio do dia chega às X horas, o primeiro trabalhador começa o turno exatamente às X horas — nunca antes.</p>
-
-    <div class="qcard">
-      <p class="q-text">Isto está certo, ou o trabalhador deve chegar antes da hora do navio (para já estar pronto quando o navio chega)?</p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Exatamente à mesma hora" /> Exatamente à mesma hora do navio</label>
-        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Deve chegar antes" /> Deve chegar antes, para já estar pronto quando o navio chega</label>
-        <label class="choice"><input type="radio" name="entrada-vs-chegada" value="Depende" /> Depende (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <div class="field-row">
-          <label class="field-label">Se deve chegar antes, quanto tempo antes da hora do navio?</label>
-          <input class="field-input" type="text" name="entrada_antecedencia" placeholder="ex: 1 hora…" />
-        </div>
-        <textarea
-          class="answer"
-          id="entrada-explicacao"
-          name="entrada_explicacao"
-          placeholder="Se depende, de quê (tipo de navio, horário, outro motivo)…"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-entrada" name="extra_entrada" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 13. FOLGA DE FIM DE SEMANA À VOLTA DE FÉRIAS vs JUSTIÇA DE ROTAÇÃO ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">13</span><h2 class="q-title">Folga à volta de férias conta para a justiça de rotação?</h2></div>
+    <div class="q-section-head"><span class="q-num">16</span><h2 class="q-title">Folga à volta de férias conta para a justiça de rotação?</h2></div>
     <div class="qcard">
       <p class="q-text">
         O programa inclui uma medida de justiça na atribuição das folgas ao fim de semana. Além
@@ -958,119 +1071,6 @@
       <div class="subquestion">
         <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
         <textarea class="answer" id="extra-ferias-rotacao" name="extra_ferias_rotacao" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 14. TEMPO DEPOIS DA CHEGADA ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">14</span><h2 class="q-title">Quanto tempo depois da chegada o trabalhador tem de ficar?</h2></div>
-
-    <div class="qcard">
-      <p class="q-text">
-        Depois de um navio chegar (atracar), durante quanto tempo é preciso ter sempre alguém
-        presente? Pode ser zero — a pessoa pode sair logo nesse momento — ou pode ser preciso ficar
-        mais algum tempo depois (para tratar de formalidades, amarração, outra necessidade).
-      </p>
-      <div class="field-row">
-        <label class="field-label">Exemplo: um navio chega às 22h e vai pernoitar. A que horas podia o trabalhador que o recebeu sair?</label>
-        <input class="field-input" type="time" name="permanencia_chegada_exemplo_hora" />
-      </div>
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Este tempo é sempre igual, ou varia consoante o tipo de navio, a hora de chegada, se pernoita, etc.?</p>
-        <div class="choice-list">
-          <label class="choice"><input type="radio" name="permanencia-chegada-varia" value="Igual em todos os casos" /> É sempre igual, em qualquer caso</label>
-          <label class="choice"><input type="radio" name="permanencia-chegada-varia" value="Varia" /> Varia (explico abaixo)</label>
-        </div>
-        <textarea
-          class="answer"
-          id="permanencia-chegada-explicacao"
-          name="permanencia_chegada_explicacao"
-          placeholder="Se varia, de que depende e qual o tempo em cada caso…"
-          style="margin-top: 10px"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-permanencia-chegada" name="extra_permanencia_chegada" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 15. JANELA DE COMPENSAÇÃO DE UMA SEMANA COM SÓ 1 FOLGA ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">15</span><h2 class="q-title">Até quando pode ser paga uma semana com só 1 folga?</h2></div>
-
-    <div class="qcard">
-      <p class="q-text">
-        Quando uma semana só dá para dar 1 folga a alguém (em vez das 2 normais), o objetivo é
-        compensar essa folga em falta na semana imediatamente anterior ou seguinte. Se não for
-        possível compensar logo nessa semana adjacente, o que deve acontecer?
-      </p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Pode alargar sem limite, até encontrar semana com espaço" /> Pode alargar a semanas mais afastadas, sem limite, até encontrar uma com espaço</label>
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Pode alargar, mas no máximo 2 semanas de diferença" /> Pode alargar, mas no máximo 2 semanas de diferença (antes ou depois)</label>
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Não pode alargar, só a semana imediatamente anterior ou seguinte" /> Não pode alargar — só a semana imediatamente anterior ou seguinte, nunca mais longe</label>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-janela-compensacao" name="extra_janela_compensacao" placeholder="Opcional…"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="bollard-rule">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6" />
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
-    <div class="rule-line"></div>
-  </div>
-
-  <!-- ============ 16. FOLGAS JUNTAS VS. UMA AO FIM DE SEMANA ============ -->
-  <section class="q-section">
-    <div class="q-section-head"><span class="q-num">16</span><h2 class="q-title">Folgas juntas ou uma ao fim de semana?</h2></div>
-
-    <div class="qcard">
-      <p class="q-text">
-        Entre ter as duas folgas seguidas a meio da semana (ex: terça e quarta) ou ter as folgas
-        separadas com uma delas ao fim de semana (ex: quarta e sábado), qual devemos preferir?
-      </p>
-      <div class="choice-list">
-        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir juntas, mesmo sem fim de semana" /> Preferir juntas, mesmo sem fim de semana (ex: terça e quarta)</label>
-        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Preferir uma ao fim de semana, mesmo separadas" /> Preferir uma ao fim de semana, mesmo separadas (ex: quarta e sábado)</label>
-        <label class="choice"><input type="radio" name="folgas-juntas-vs-fds" value="Depende" /> Depende (explico abaixo)</label>
-      </div>
-      <div class="subquestion">
-        <textarea
-          class="answer"
-          id="folgas-juntas-explicacao"
-          name="folgas_juntas_explicacao"
-          placeholder="Se depende, de quê…"
-        ></textarea>
-      </div>
-
-      <div class="subquestion">
-        <p class="q-text" style="margin-bottom: 10px">Algo a acrescentar sobre este ponto? (opcional)</p>
-        <textarea class="answer" id="extra-folgas-juntas" name="extra_folgas_juntas" placeholder="Opcional…"></textarea>
       </div>
     </div>
   </section>
@@ -1182,32 +1182,26 @@
       if (e2) linhas.push(e2);
       linhas.push("");
 
-      linhas.push("4) O Duarte conta como os outros na chegada/partida?");
+      linhas.push("4) Ajuste por tamanho do navio");
+      linhas.push("   Confirma a lógica (-1 pequeno / +1 grande)? " + textoEscolhaRadio("ajuste-tamanho-confirma"));
+      var e9 = linhaExtra("extra-ajuste");
+      if (e9) linhas.push(e9);
+      linhas.push("");
+
+      linhas.push("5) Navio em primeira viagem exige algo diferente?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("primeira-viagem"));
+      var primeiraViagemTexto = document.getElementById("primeira-viagem-explicacao").value.trim();
+      if (primeiraViagemTexto) linhas.push("   Detalhe: " + primeiraViagemTexto);
+      var e10a = linhaExtra("extra-primeira-viagem");
+      if (e10a) linhas.push(e10a);
+      linhas.push("");
+
+      linhas.push("6) O Duarte conta como os outros na chegada/partida?");
       linhas.push("   Resposta: " + textoEscolhaRadio("duarte-conta-chegada"));
       var duarteTexto = document.getElementById("duarte-explicacao").value.trim();
       if (duarteTexto) linhas.push("   Detalhe: " + duarteTexto);
       var e3 = linhaExtra("extra-sozinho");
       if (e3) linhas.push(e3);
-      linhas.push("");
-
-      linhas.push("5) Regra da pernoita");
-      var fecho = document.getElementById("pernoita-fecho").value || "(não preenchido)";
-      var abertura = document.getElementById("pernoita-abertura").value || "(não preenchido)";
-      linhas.push("   Saída do último trabalhador (fecho): " + fecho);
-      linhas.push("   Entrada do primeiro trabalhador (abertura): " + abertura);
-      linhas.push("   Regra igual para todos os navios? " + textoEscolhaRadio("pernoita-varia"));
-      var pernoitaTexto = document.getElementById("pernoita-explicacao").value.trim();
-      if (pernoitaTexto) linhas.push("   Detalhe: " + pernoitaTexto);
-      var e4 = linhaExtra("extra-pernoita");
-      if (e4) linhas.push(e4);
-      linhas.push("");
-
-      linhas.push("6) Compensação ou número ótimo?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-otimo"));
-      var compTexto = document.getElementById("compensacao-explicacao").value.trim();
-      if (compTexto) linhas.push("   Detalhe: " + compTexto);
-      var e5 = linhaExtra("extra-compensacao");
-      if (e5) linhas.push(e5);
       linhas.push("");
 
       linhas.push("7) Nível de responsabilidade");
@@ -1224,7 +1218,69 @@
       if (e6) linhas.push(e6);
       linhas.push("");
 
-      linhas.push("8) Folgas numa semana com feriado a meio");
+      linhas.push("8) Hora de entrada face à chegada do navio");
+      linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
+      var antecedencia = document.querySelector('[name="entrada_antecedencia"]').value;
+      if (antecedencia) linhas.push("   Antecedência: " + antecedencia);
+      var entradaTexto = document.getElementById("entrada-explicacao").value.trim();
+      if (entradaTexto) linhas.push("   Detalhe: " + entradaTexto);
+      var e10 = linhaExtra("extra-entrada");
+      if (e10) linhas.push(e10);
+      linhas.push("");
+
+      linhas.push("9) Quanto tempo depois da chegada o trabalhador tem de ficar?");
+      var permanenciaExemplo = document.querySelector('[name="permanencia_chegada_exemplo_hora"]').value;
+      linhas.push("   Exemplo (navio chega às 22h, pernoita) — hora de saída: " + (permanenciaExemplo || "(não preenchido)"));
+      linhas.push("   Varia consoante o caso? " + textoEscolhaRadio("permanencia-chegada-varia"));
+      var permanenciaTexto = document.getElementById("permanencia-chegada-explicacao").value.trim();
+      if (permanenciaTexto) linhas.push("   Detalhe: " + permanenciaTexto);
+      var e12 = linhaExtra("extra-permanencia-chegada");
+      if (e12) linhas.push(e12);
+      linhas.push("");
+
+      linhas.push("10) Regra da pernoita");
+      var fecho = document.getElementById("pernoita-fecho").value || "(não preenchido)";
+      var abertura = document.getElementById("pernoita-abertura").value || "(não preenchido)";
+      linhas.push("   Saída do último trabalhador (fecho): " + fecho);
+      linhas.push("   Entrada do primeiro trabalhador (abertura): " + abertura);
+      linhas.push("   Regra igual para todos os navios? " + textoEscolhaRadio("pernoita-varia"));
+      var pernoitaTexto = document.getElementById("pernoita-explicacao").value.trim();
+      if (pernoitaTexto) linhas.push("   Detalhe: " + pernoitaTexto);
+      var e4 = linhaExtra("extra-pernoita");
+      if (e4) linhas.push(e4);
+      linhas.push("");
+
+      linhas.push("11) Compensação ou número ótimo?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("compensacao-otimo"));
+      var compTexto = document.getElementById("compensacao-explicacao").value.trim();
+      if (compTexto) linhas.push("   Detalhe: " + compTexto);
+      var e5 = linhaExtra("extra-compensacao");
+      if (e5) linhas.push(e5);
+      linhas.push("");
+
+      linhas.push("12) Quando não há gente suficiente para tudo");
+      linhas.push("   O que cede primeiro: " + textoEscolhaRadio("escassez-cede"));
+      var escassezTexto = document.getElementById("escassez-explicacao").value.trim();
+      if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
+      var e8 = linhaExtra("extra-escassez");
+      if (e8) linhas.push(e8);
+      linhas.push("");
+
+      linhas.push("13) Até quando pode ser paga uma semana com só 1 folga?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("janela-compensacao"));
+      var e13 = linhaExtra("extra-janela-compensacao");
+      if (e13) linhas.push(e13);
+      linhas.push("");
+
+      linhas.push("14) Folgas juntas ou uma ao fim de semana?");
+      linhas.push("   Resposta: " + textoEscolhaRadio("folgas-juntas-vs-fds"));
+      var folgasJuntasTexto = document.getElementById("folgas-juntas-explicacao").value.trim();
+      if (folgasJuntasTexto) linhas.push("   Detalhe: " + folgasJuntasTexto);
+      var e14 = linhaExtra("extra-folgas-juntas");
+      if (e14) linhas.push(e14);
+      linhas.push("");
+
+      linhas.push("15) Folgas numa semana com feriado a meio");
       linhas.push("   Quem folga no feriado: " + textoEscolhaRadio("feriado-quem-folgou"));
       var feriadoFolgaTexto = document.getElementById("feriado-folga-explicacao").value.trim();
       if (feriadoFolgaTexto) linhas.push("   Detalhe: " + feriadoFolgaTexto);
@@ -1235,68 +1291,12 @@
       if (e7) linhas.push(e7);
       linhas.push("");
 
-      linhas.push("9) Quando não há gente suficiente para tudo");
-      linhas.push("   O que cede primeiro: " + textoEscolhaRadio("escassez-cede"));
-      var escassezTexto = document.getElementById("escassez-explicacao").value.trim();
-      if (escassezTexto) linhas.push("   Detalhe: " + escassezTexto);
-      var e8 = linhaExtra("extra-escassez");
-      if (e8) linhas.push(e8);
-      linhas.push("");
-
-      linhas.push("10) Ajuste por tamanho do navio");
-      linhas.push("   Confirma a lógica (-1 pequeno / +1 grande)? " + textoEscolhaRadio("ajuste-tamanho-confirma"));
-      var e9 = linhaExtra("extra-ajuste");
-      if (e9) linhas.push(e9);
-      linhas.push("");
-
-      linhas.push("11) Navio em primeira viagem exige algo diferente?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("primeira-viagem"));
-      var primeiraViagemTexto = document.getElementById("primeira-viagem-explicacao").value.trim();
-      if (primeiraViagemTexto) linhas.push("   Detalhe: " + primeiraViagemTexto);
-      var e10a = linhaExtra("extra-primeira-viagem");
-      if (e10a) linhas.push(e10a);
-      linhas.push("");
-
-      linhas.push("12) Hora de entrada face à chegada do navio");
-      linhas.push("   Resposta: " + textoEscolhaRadio("entrada-vs-chegada"));
-      var antecedencia = document.querySelector('[name="entrada_antecedencia"]').value;
-      if (antecedencia) linhas.push("   Antecedência: " + antecedencia);
-      var entradaTexto = document.getElementById("entrada-explicacao").value.trim();
-      if (entradaTexto) linhas.push("   Detalhe: " + entradaTexto);
-      var e10 = linhaExtra("extra-entrada");
-      if (e10) linhas.push(e10);
-      linhas.push("");
-
-      linhas.push("13) Folga à volta de férias conta para a justiça de rotação?");
+      linhas.push("16) Folga à volta de férias conta para a justiça de rotação?");
       linhas.push("   Resposta: " + textoEscolhaRadio("ferias-fds-conta-rotacao"));
       var feriasFdsTexto = document.getElementById("ferias-fds-explicacao").value.trim();
       if (feriasFdsTexto) linhas.push("   Detalhe: " + feriasFdsTexto);
       var e11 = linhaExtra("extra-ferias-rotacao");
       if (e11) linhas.push(e11);
-      linhas.push("");
-
-      linhas.push("14) Quanto tempo depois da chegada o trabalhador tem de ficar?");
-      var permanenciaExemplo = document.querySelector('[name="permanencia_chegada_exemplo_hora"]').value;
-      linhas.push("   Exemplo (navio chega às 22h, pernoita) — hora de saída: " + (permanenciaExemplo || "(não preenchido)"));
-      linhas.push("   Varia consoante o caso? " + textoEscolhaRadio("permanencia-chegada-varia"));
-      var permanenciaTexto = document.getElementById("permanencia-chegada-explicacao").value.trim();
-      if (permanenciaTexto) linhas.push("   Detalhe: " + permanenciaTexto);
-      var e12 = linhaExtra("extra-permanencia-chegada");
-      if (e12) linhas.push(e12);
-      linhas.push("");
-
-      linhas.push("15) Até quando pode ser paga uma semana com só 1 folga?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("janela-compensacao"));
-      var e13 = linhaExtra("extra-janela-compensacao");
-      if (e13) linhas.push(e13);
-      linhas.push("");
-
-      linhas.push("16) Folgas juntas ou uma ao fim de semana?");
-      linhas.push("   Resposta: " + textoEscolhaRadio("folgas-juntas-vs-fds"));
-      var folgasJuntasTexto = document.getElementById("folgas-juntas-explicacao").value.trim();
-      if (folgasJuntasTexto) linhas.push("   Detalhe: " + folgasJuntasTexto);
-      var e14 = linhaExtra("extra-folgas-juntas");
-      if (e14) linhas.push(e14);
       linhas.push("");
 
       linhas.push("17) Outras considerações");
