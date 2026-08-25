@@ -1022,26 +1022,22 @@
   <!-- ============ 15. JANELA DE COMPENSAÇÃO DE UMA SEMANA COM SÓ 1 FOLGA ============ -->
   <section class="q-section">
     <div class="q-section-head"><span class="q-num">15</span><h2 class="q-title">Até quando pode ser paga uma semana com só 1 folga?</h2></div>
-    <p class="q-section-intro">
-      Quando uma semana só dá para dar 1 folga a alguém (em vez das 2 normais), o programa hoje
-      procura, noutra semana do mês, o dia livre mais próximo dessa semana em falta — antes ou
-      depois — para lhe dar aí a folga que ficou por dar. Não tem de ser logo a semana seguinte, pode
-      ser 2 ou mais semanas antes ou depois, desde que seja o mais perto possível de onde faltou.
-    </p>
 
     <div class="qcard">
       <p class="q-text">
-        Isto está certo? Ou deve ser sempre a semana imediatamente a seguir (ou a anterior), nunca
-        mais longe do que isso?
+        Quando uma semana só dá para dar 1 folga a alguém (em vez das 2 normais), o objetivo é
+        compensar essa folga em falta na semana imediatamente anterior ou seguinte. Se não for
+        possível compensar logo nessa semana adjacente, podemos alargar a procura a semanas mais
+        afastadas — por exemplo, 2 semanas antes ou depois?
       </p>
       <div class="choice-list">
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Está certo — pode ser a semana mais próxima com espaço livre" /> Está certo — pode ser a semana mais próxima com espaço livre, mesmo que não seja logo a seguinte</label>
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Não, tem de ser sempre a semana imediatamente a seguir ou anterior" /> Não, tem de ser sempre a semana imediatamente a seguir (ou a anterior)</label>
-        <label class="choice"><input type="radio" name="janela-compensacao" value="Há um limite diferente" /> Há um limite diferente (explico abaixo)</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Sim, pode alargar a semanas mais afastadas se a adjacente não der" /> Sim — se a semana adjacente não der, pode alargar a semanas mais afastadas</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Não, só pode ser a semana imediatamente anterior ou seguinte" /> Não — só pode ser a semana imediatamente anterior ou seguinte, nunca mais longe</label>
+        <label class="choice"><input type="radio" name="janela-compensacao" value="Depende" /> Depende (explico abaixo)</label>
       </div>
       <div class="subquestion">
         <div class="field-row">
-          <label class="field-label">Se há um limite diferente, quantas semanas no máximo antes/depois?</label>
+          <label class="field-label">Se pode alargar, até quantas semanas no máximo antes/depois?</label>
           <input class="field-input num" type="number" name="janela_compensacao_semanas" />
         </div>
         <textarea
